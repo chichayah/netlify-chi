@@ -1,26 +1,79 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <router-link class="navbar-brand" to="/">ALVIN NAGUIT</router-link>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#work">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="flex-fill">
+      <section id="about" class="container my-5">
+        <AboutMe />
+      </section>
+      <section id="work" class="container my-5">
+        <MyWork />
+      </section>
+      <section id="contact" class="container my-5">
+        <ContactMe />
+      </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+      <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AboutMe from './components/AboutMe.vue';
+import MyWork from './components/MyWork.vue';
+import ContactMe from './components/ContactMe.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AboutMe,
+    MyWork,
+    ContactMe
   }
-}
+};
 </script>
 
 <style>
+/* Ensure the main container takes full height and footer is at the bottom */
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-fill {
+  flex: 1;
+}
+
+footer {
+  background: #343a40;
+  color: #ffffff;
+  padding: 1.5rem 0;
+}
+
+section {
+  padding-top: 80px; /* Adjust to account for fixed navbar */
 }
 </style>
