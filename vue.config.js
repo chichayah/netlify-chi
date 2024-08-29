@@ -4,7 +4,6 @@ module.exports = defineConfig({
 })
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/netlify-chi/'  // replace with your repository name
-    : '/'
-}
+  publicPath: '/', // Ensures assets are served correctly
+  outputDir: 'dist', // Default output directory for build files
+};
