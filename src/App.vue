@@ -90,7 +90,7 @@ section {
 
 /* Specific background colors for each section */
 .bg-about {
-  background-color: #25d9c8;
+  background-color: #4df0ff;
 }
 
 .bg-work {

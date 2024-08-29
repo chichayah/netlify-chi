@@ -4,11 +4,11 @@
     <canvas id="particles-canvas"></canvas>
     <div class="container position-relative">
       <div class="row">
-        <div class="col-md-5 text-black d-flex align-items-center justify-content-center">
+        <div class="col-md-5 text-white d-flex align-items-center justify-content-center">
           <div class="am-text">
             <h2 class="display-4">Hi&nbsp;There!</h2>
-            <p class="lead">I'm&nbsp;<span class="text-white">Alvin</span>.</p>
-            <p>I&nbsp;am&nbsp;a&nbsp;<span class="text-white">Rich&nbsp;Media&nbsp;Developer</span>.</p>
+            <p class="lead">I'm&nbsp;<span class="text-black">Alvin</span>.</p>
+            <p>I&nbsp;am&nbsp;a&nbsp;<span class="text-black">Rich&nbsp;Media&nbsp;Developer</span>.</p>
             <!-- Larger Button -->
             <div class="text-center text-md-start">
               <a href="#work" class="btn btn-custom mt-3">View My Work</a>
@@ -47,7 +47,7 @@ export default {
           this.x = Math.floor(x);
           this.y = Math.floor(y);
           this.ctx = this.effect.ctx;
-          this.ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+          this.ctx.fillStyle = "rgba(32, 31, 90, .2)";
           this.vx = 0;
           this.vy = 0;
           this.ease = 0.2;
@@ -57,7 +57,7 @@ export default {
           this.distance = 0;
           this.force = 0;
           this.angle = 0;
-          this.size = Math.floor(Math.random() * 4);
+          this.size = Math.floor(Math.random() * 3);
           this.alpha = .5;
           this.draw();
         }
