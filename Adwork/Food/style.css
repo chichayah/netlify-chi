@@ -1,0 +1,96 @@
+body {margin: 0px;}
+
+#container {
+	background-color: black;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	pointer-events: none;
+    width: 970px;
+	height: 250px;
+}
+
+#container * {
+	position: absolute;
+}
+
+#border{
+    border: 1px solid gray;  
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#clickthru{
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+}
+
+/*-------------- SPRITE -------------*/
+.sprite { background: url('sprite.png') no-repeat top left; width: 224px; height: 330px; background-size: 224px 330px;  } 
+.sprite.cta-text1 { background-position: 0 0; width: 63px; height: 8px; } 
+.sprite.cta-text2 { background-position: 0 -13px; width: 63px; height: 8px; } 
+.sprite.logo { background-position: 0 -26px; width: 15px; height: 19px; } 
+.sprite.t1 { background-position: 0 -50px; width: 154px; height: 53px; } 
+.sprite.t3 { background-position: 0 -108px; width: 224px; height: 97px; } 
+.sprite.t4 { background-position: 0 -210px; width: 89px; height: 61px; } 
+.sprite.t5 { background-position: 0 -276px; width: 103px; height: 54px; } 
+
+/*--------- SPRITE POSITION ---------*/
+.cta-text1,.cta-text2 {top: 9px;left: 13px;}
+.cta-text2 {opacity:0; }
+.logo {top: 11px;left: 9px;}
+.t1 {top: 31px;left: 26px;}
+.t3 {top: 121px;left: 184px;}
+.t4 {top: 30px;right: 119px;}
+.t5 {top: 123px;right: 46px;}
+
+/*-------- IMAGES | POSITION --------*/
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bg{
+	width: 100%;
+	height: 100%;
+}
+#bg2 {
+	left: 970px;
+}
+
+.food1 {
+	width: 379px;
+	height: 188px;
+	top: 43px;
+	left: 283px;
+}
+
+.food2 {
+	width: 400px;
+	height: 204px;
+	top: 43px;
+	left: 293px;
+}
+
+.food3 {
+	width: 370px;
+	height: 180px;
+	top: 43px;
+	left: 294px;
+}
+
+.cta{
+    background-color:#ffa800;
+    border-radius: 11px;
+    width: 90px;
+    height: 26px;
+    bottom: 15px;
+    right: 15px;
+    pointer-events: auto;
+}
+
+

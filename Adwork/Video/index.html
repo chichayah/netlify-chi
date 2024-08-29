@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset="UTF-8">
+	<title>Video_300x600</title>
+	<meta name="ad.size" content="width=300,height=600">
+	<link rel="stylesheet" href="style.css">
+	<script> var clickTag = "https://www.google.com"; </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- STUDIO -->
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script> 
+    <!-- GSAP -->
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js"></script>
+    <!-- STANDARD -->
+    <script src="cb_enabler.js"></script>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</head>
+<body>
+	<div id="container">
+		<!-- ~~~~~~~~~~~~~~ INSERT DIVS ~~~~~~~~~~~~~~ -->    
+        <!-- ADD 'imgfix' CLASS ON ALL IMG TAGS -->
+		<div class='bg'></div>
+		<div id="video-container">
+			<video id="videoplayer" muted>
+				<source id="video-src" type="video/mp4" src="video.mp4">
+			</video>
+			<div id="video-controls">
+				<div id="toggle-pauseplay" class="pause" ></div>
+				<div id="toggle-sound" class="mute" ></div>
+				<div id="progress-bar">
+					<div class="progress-bg">
+						<div class="timer-bar"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div id="playMainVid" class='btn_mute'></div>
+        <div id="close-btn"></div>
+        <div id="resolve">
+        	<div class="replayBg">
+        		<img src="bg.jpg" alt="">
+        	</div>
+        	<div class="text"> <img src="text.jpg"> </div>
+			<div id="smokeHolder" class="gunsmoke"></div>
+        	<div id="clickthru"></div>
+            <div class="playIcon"></div>
+        </div>
+		<!-- ~~~~~~~~~~~~~~ INSERT DIVS ~~~~~~~~~~~~~~ -->
+	</div>
+	<script src="canvas.js"></script>
+	<script>
+		var tl = gsap.timeline();
+		var introvid;
+		var mainvid;
+		var mainvidplaying = false;
+        var showResolveAnim = true;
+		function initAd() {
+			//--------- PRE-LOAD IMAGE ------------
+			startPreload('bg.jpg', 'p1.png', 'btn_mute.png', 'text.jpg', 'vid_closebtn.png', 'vid_mute.png', 'vid_unmute.png', 'vid_play.png', 'vid_pause.png', 'vid_playEnd.png', startAnim);
+			//----------------DateSwap---------------------
+
+			//----------------DateSwap---------------------
+			function startAnim() {
+				//--------------- SET video -----------------
+				setVideo(); // set intro video
+				//--------------- SET -----------------
+				gsap.set('#container', {display: 'block'});
+                gsap.set('.imgfix', { rotation:0.001, force3D: false});
+                gsap.set('#video-controls', {yPercent:100});
+				//------------ ADD EVENT --------------
+				addEvent();
+				//---------- ADD ANIMATION ------------
+				//-------------------------------------
+			};
+
+			function addEvent() {
+				//--------------- SET -----------------
+				//To add:		_(object).on(events,  function);
+				//To remove:	_(object).off(events, function);
+				//-------------------------------------
+				_('#clickthru').on('click', exit);
+				_('#videoplayer').on('click', exit);
+				_('#toggle-pauseplay').on('click', togglePausePlay);
+				_('#toggle-sound').on('click', toggleSounds);
+				_('#playMainVid').on('click', playMainVideo);
+                _('.playIcon').on('click', replayVideo);
+				_('#close-btn').on('click', stopvideo);
+               
+				Enabler.loadModule(studio.module.ModuleId.VIDEO, function() {
+				   studio.video.Reporter.attach('intro_video', _('#videoplayer').c);
+				});
+				
+			};
+			
+			function exit() {
+                Enabler.exit('Background Exit'); /*Studio/Enabler Exit*/
+				stopvideo();
+                console.log('Exit')
+            }
+
+            //-------------VIDEO Player Setup------------------------
+			var video = _('#videoplayer').c;
+            function setVideo(){
+				video.load();
+				video.play();
+			}
+			function playMainVideo(){
+				setVideo();
+				studio.video.Reporter.detach('intro_video', _('#videoplayer').c);
+				studio.video.Reporter.attach('main_video', _('#videoplayer').c);
+				_('#playMainVid').c.style.display = 'none';
+				toggleSounds();
+				mainvidplaying = true;
+				TweenLite.set('.timer-bar',{width:0})
+			}
+			//-------------VIDEO Controls------------------------
+			function playVideo(){
+				_('#toggle-pauseplay').c.className = "pause"; //show pause icon
+				video.play();
+			}
+			function pauseVideo(){
+				_('#toggle-pauseplay').c.className = "play"; //show play icon
+				video.pause();
+			}
+			function muteVideo(){
+				_('#toggle-sound').c.className = "mute"; 
+				video.muted=true;
+			}
+			function unMuteVideo(){
+				_('#toggle-sound').c.className = "unmute"; 
+				video.muted=false;
+			}
+			//toggle pause play function
+			function togglePausePlay(){
+				if(video.paused){
+					playVideo();
+				}else{
+					pauseVideo();
+				}
+			}
+			//toggle sound function
+			function toggleSounds(){
+				if(video.muted){
+					unMuteVideo()
+				}else{
+					muteVideo()
+				}
+			}
+			
+			function replayVideo(){
+				if(!mainvidplaying) playMainVideo();
+				video.pause()
+                try{
+				video.currentTime=0;
+                }
+                catch(error){}
+				playVideo();
+				unMuteVideo()
+                showResolveAnim = true;
+				TweenLite.set('.timer-bar',{width:0})
+				TweenLite.set('#resolve',{display:'none'});
+			}
+			function stopvideo(){
+				pauseVideo();
+				showresolve(showResolveAnim)
+			}
+			function showresolve(animated){
+				addSmoke();
+                showResolveAnim = false;
+				if(!animated){
+					TweenLite.set('#resolve',{display:'block'});
+					TweenLite.set('#playMainVid',{display:'none'});
+				}else{
+                    console.log('Show Resolve')
+                    var tl = new TimelineMax();
+                    tl
+                        .set('#resolve',{display:'block'})
+					    .set('#playMainVid',{display:'none'})
+                        .set(['.replayBg', '.text'], {opacity: 0})
+                        .set('.playIcon', {opacity: 0, pointerEvents: 'none'})
+                       
+                        .add('frame1')
+                        .fromTo('.replayBg', {scale: 1.05}, {duration: 5, scale: 1, ease: 'none'}, 'frame1')
+                        .to('.replayBg', {duration: .1, opacity: 1}, 'frame1')
+                        .fromTo('.text', {opacity: 0, y: 10}, {duration: .8, opacity: 1, y: 0, ease: 'power1.out'}, 'frame1+=.6')
+                        .to('.playIcon', .6, {opacity: 1, pointerEvents: 'auto'}, 'frame1+=.3')
+                    
+                    return tl;
+					//animated resolve here
+				}
+			}
+
+			function addSmoke(){
+				var smokeAmount = 200;
+				var smoke = new Smoke($('#smokeHolder')[0],'p1.png',300,600,{x : 180, y : 550}, smokeAmount);
+				smoke.start(true);
+				smoke.setWind(1);
+			}
+			function showctrls(bool){
+				TweenLite.to('#video-controls',.3, {yPercent:(bool)?0:100});
+			}
+			
+			//scrubber ------------------------------------------
+			var drag = false;
+			_('#progress-bar').on('mousedown', function(e) {
+				drag = true;
+					progressupdate(e.pageX);
+			});
+			_('#progress-bar').on('mouseup', function(e) {
+				if(drag) {
+					drag = false;
+					progressupdate(e.pageX);
+				}
+			});
+			_('#progress-bar').on('mousemove', function(e) {
+				if(drag) {
+					progressupdate(e.pageX);
+				}
+			});
+			function progressupdate(x){
+				var vPos = _('#video-container').c.offsetLeft;
+				var position = x -(_('#progress-bar').c.offsetLeft + vPos);
+				var w = _('#progress-bar').c.offsetWidth; 
+				var progress = position/w;
+				video.currentTime = video.duration * progress;
+			}
+			//-------------VIDEO Events------------------------
+			_('#videoplayer').on('timeupdate',function(){
+				var timepos = video.currentTime / video.duration;
+				TweenLite.to('.timer-bar',.1,{width:timepos*100+"%"})
+				if(video.ended){
+					showresolve(true);
+				}
+			})
+			_('#videoplayer').on('playing',function(){
+				if(mainvidplaying){
+					// showctrls(true)
+					videoctrlevent();
+					_('#close-btn').c.style.display = 'block';
+				}else{
+					_('#playMainVid').c.style.display = 'block';
+				}
+			})
+			
+			function videoctrlevent(){
+				_('#video-container').on('mouseover',function(){
+					showctrls(true);
+				});
+				_('#video-container').on('mouseout', function(){
+					showctrls(false);
+				});
+			}
+		};
+	</script>
+</body>
+</html>
+
+<!--1018V2-->
