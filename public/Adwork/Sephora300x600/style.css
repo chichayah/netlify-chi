@@ -1,0 +1,130 @@
+body {margin: 0px;}
+
+#container {
+	background-color: black;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	pointer-events: none;
+    width: 300px;
+	height: 600px;
+}
+
+#container * {
+	position: absolute;
+}
+
+
+#border{
+    border: 1px solid gray;  
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#clickthru{
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+}
+
+/*-------------- SPRITE -------------*/
+.sprite { background: url('sprite.png') no-repeat top left; width: 248px; height: 546px; background-size: 248px 546px;  } 
+.sprite.cta-text { background-position: 0 0; width: 85px; height: 12px; } 
+.sprite.cta-arrow { background-position: 0 -17px; width: 6px; height: 10px; } 
+.sprite.text1-1 { background-position: 0 -32px; width: 103px; height: 33px; } 
+.sprite.logo { background-position: 0 -70px; width: 169px; height: 23px; } 
+.sprite.text1-2 { background-position: 0 -98px; width: 240px; height: 44px; } 
+.sprite.text1-3 { background-position: 0 -147px; width: 183px; height: 34px; } 
+.sprite.text2-1 { background-position: 0 -186px; width: 218px; height: 36px; } 
+.sprite.text2-2 { background-position: 0 -227px; width: 244px; height: 34px; } 
+.sprite.text2-3 { background-position: 0 -266px; width: 231px; height: 34px; } 
+.sprite.text3-1 { background-position: 0 -305px; width: 138px; height: 27px; } 
+.sprite.text3-2 { background-position: 0 -337px; width: 248px; height: 35px; } 
+.sprite.text4-2 { background-position: 0 -377px; width: 206px; height: 33px; } 
+.sprite.text4-3 { background-position: 0 -415px; width: 184px; height: 43px; } 
+.sprite.text4-4 { background-position: 0 -463px; width: 158px; height: 20px; } 
+.sprite.text4-1 { background-position: 0 -488px; width: 54px; height: 33px; } 
+.sprite.text4-5 { background-position: 0 -526px; width: 118px; height: 20px; } 
+
+/*--------- SPRITE POSITION ---------*/
+.cta-text {top: 55px;left: 101px;}
+.cta-arrow {top: 56px;left: 190px;}
+.logo {top: 21px;left: 64px;}
+.text1-1 {top: 148px;left: 98px;}
+.text1-2 {top: 194px;left: 30px;}
+.text1-3 {top: 242px;left: 58px;}
+.text2-1 {top: 202px;left: 40px;}
+.text2-2 {top: 241px;left: 27px;}
+.text2-3 {top: 279px;left: 33px;}
+.text3-1 {top: 227px;left: 81px;}
+.text3-2 {top: 275px;left: 27px;}
+.text4-1 {top: 160px;left: 123px;}
+.text4-2 {top: 207px;left: 48px;}
+.text4-3 {top: 253px;left: 58px;}
+.text4-4 {top: 310px;left: 71px;}
+.text4-5 {top: 334px;left: 91px;}
+
+
+/*-------- IMAGES | POSITION --------*/
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bg{
+	width: 100%;
+	height: 100%;
+    background-color: #f6b840;
+}
+
+.truck-holder {
+    width: 100%;
+	height: 100%;
+}
+
+.truck {
+    width: 94px;
+    height: 69px;
+    top: 317px;
+    left: 110px;
+}
+
+.truckstar-1 {
+    width: 7px;
+    height: 9px;
+    top: 301px;
+    left: 87px;
+}
+
+.truckstar-2 {
+    width: 7px;
+    height: 9px;
+    top: 308px;
+    left: 104px;
+}
+
+.truckstar-3 {
+    width: 13px;
+    height: 17px;
+    top: 310px;
+    left: 90px;
+}
+
+.cta{
+    background-color:black;
+    width: 100%;
+    height: 87px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#redpath1 {
+    mix-blend-mode: multiply;
+}
+
+#purplepath2, #redpath2 {
+    visibility:hidden;
+}

@@ -1,0 +1,169 @@
+body {margin: 0px;}
+
+#container {
+	background-color: #000;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	width: 300px;
+	height: 600px;
+	pointer-events: none;
+}
+
+#container * {
+	position: absolute;
+}
+#border{
+    border: 1px solid gray;  
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#clickthru{
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+}
+.replay {width: 17px; height: 17px;top: 37px;left: 8px; pointer-events: auto;}
+
+/*-------------- SPRITE -------------*/
+.sprite { background: url('images/sprite.png') no-repeat top left; width: 301px; height: 313px; background-size: 301px 313px;  } 
+.sprite.cta-text1 { background-position: 0 0; width: 102px; height: 26px; } 
+.sprite.cta-text2 { background-position: 0 -31px; width: 102px; height: 26px; } 
+.sprite.cta { background-position: 0 -62px; width: 192px; height: 65px; } 
+.sprite.headline { background-position: 0 -132px; width: 300px; height: 36px; } 
+.sprite.logo-prime { background-position: 0 -173px; width: 67px; height: 21px; } 
+.sprite.logo { background-position: 0 -199px; width: 301px; height: 92px; } 
+.sprite.replay { background-position: 0 -296px; width: 17px; height: 17px; } 
+
+/*--------- SPRITE POSITION ---------*/
+.cta-text1,.cta-text2 {top: 19px;left: 45px;}
+.cta-text2 {opacity:0; }
+.logo {top: 223px;left: 2px;}
+.logo-prime {bottom: 6px;left: 120px;}
+.headline {top: 0px;left: 0px;}
+.replay {top: 44px;left: 3px;pointer-events: auto;}
+.legal {top: -1px;left: -1px;width:300px;height:600px}
+
+/*-------- IMAGES | POSITION --------*/
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bg, .hour-glass, .char{
+	width: 100%;
+	height: 100%;
+}
+
+#cta{
+    width: 192px;
+    height: 65px;
+    left: 58px;
+    top: 514px;
+    pointer-events: auto;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+/* CAROUSEL */
+#carousel-holder {
+	width: 100%;
+	height: 100%;
+}
+.carousel {
+	width: 500px;
+	height: 100%;
+	left: -100px;
+}
+#btn-left {
+	width: 18px;
+	height: 34px;
+	top: 180px;
+	left: 15px;
+	pointer-events: auto;
+}
+#btn-right {
+	width: 18px;
+	height: 34px;
+	top: 180px;
+	right: 15px;
+	pointer-events: auto;
+}
+
+/*-------- IMAGES | POSITION --------*/
+.top-bar {
+    width: 300px;
+    height: 33px;
+    top: 304px;
+}
+.bot-bar {
+    width: 300px;
+    height: 74px;
+    top: 502px;
+}
+
+video {
+	top: 336px;
+}
+
+.video-bg {
+	top: 337px;
+	width: 300px;
+	height: 170px;
+	background-color: black;
+}
+
+.vid-mute{
+	background: url(images/mute.png) 0px 0px / 24px 48px no-repeat;
+
+}
+.vid-mute:hover{
+	background: url(images/mute.png) 0px -24px / 24px 48px no-repeat;
+}
+.vid-unmute{
+	background: url(images/unmute.png) 0px 0px / 24px 48px no-repeat;
+}
+.vid-unmute:hover{
+	background: url(images/unmute.png) 0px -24px / 24px 48px no-repeat;
+}
+
+#btn-play {
+	width: 300px;
+	height: 196px;
+	top: 321px;
+}
+
+#btn-mute, #btn-unmute{
+	width: 24px;
+	height: 24px;
+	top: 344px;
+	left: 9px;
+	pointer-events: auto;
+	display:none;
+}
+
+/* MorphSVG */
+#rightpath2, #rightpath3, #leftpath2, #leftpath3 {
+    visibility:hidden;
+}
+
+.hour-left {
+	width: 150px;
+	height: 600px;
+	overflow: hidden;
+}
+
+.hour-right {
+	width: 150px;
+	height: 600px;
+	overflow: hidden;
+	left: 150px;
+}

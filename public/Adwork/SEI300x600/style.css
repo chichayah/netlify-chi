@@ -1,0 +1,116 @@
+body {margin: 0px;}
+
+#container {
+	background-color: black;
+	border: 1px solid gray;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	width: 300px;
+	height: 600px;
+}
+
+#container * {
+	position: absolute;
+}
+
+.bg {
+	width: 300px;
+	height: 600px;
+    background-color: #1a3c6b;
+}
+
+.seq_char {
+    background: url('seq_char.png') top left no-repeat;
+    width: 300px;
+    height: 600px;
+    top: -101px;
+    left: 4px;
+}
+
+.bBox {
+    background: url('bBox.png') top left no-repeat;
+    width: 300px;
+    height: 600px;
+    top: -67px;
+    left: 16px;
+}
+
+.seq_fBox {
+    background: url('seq_fBox.png') top left no-repeat;
+    width: 300px;
+    height: 600px;
+    top: -67px;
+    left: 12px;
+}
+
+.seq_mBox {
+    background: url('seq_mBox.png') top left no-repeat;
+    width: 300px;
+    height: 600px;
+    top: -67px;
+    left: 16px;
+}
+
+.line {
+    background: url('line.png') top left no-repeat;
+    width: 3px;
+    height: 260px;
+    top: 129px;
+    left: 246px;
+}
+
+.circle {
+    background: url('circle.png') top left no-repeat;
+    width: 300px;
+    height: 600px;
+    top: -100px;
+    left: 4px;
+}
+
+.baloon {
+    background: url('baloon.png') top left no-repeat;
+    width: 102px;
+    height: 192px;
+    top: 386px;
+    left: 202.5px;
+}
+
+.baloonMask {
+    width: 300px;
+    height: 393px;
+    overflow: hidden;
+    top: 0px;
+    left: -1px;
+}
+
+/*SPRITE*/
+.sprite { background: url('sprite.png') no-repeat top left !important; background-size: 300px 532px !important; } 
+.sprite.ctaarrow { background-position: 0 0 !important; width: 6px !important; height: 7px !important; } 
+.sprite.ctatext { background-position: 0 -12px !important; width: 93px !important; height: 11px !important; } 
+.sprite.logo { background-position: 0 -27px !important; width: 300px !important; height: 95px !important; } 
+.sprite.text1 { background-position: 0 -127px !important; width: 169px !important; height: 61px !important; } 
+.sprite.text2 { background-position: 0 -193px !important; width: 146px !important; height: 14px !important; } 
+.sprite.text3 { background-position: 0 -212px !important; width: 209px !important; height: 80px !important; } 
+.sprite.text4 { background-position: 0 -297px !important; width: 215px !important; height: 17px !important; } 
+.sprite.text5 { background-position: 0 -319px !important; width: 106px !important; height: 39px !important; } 
+.sprite.text6 { background-position: 0 -363px !important; width: 146px !important; height: 39px !important; } 
+.sprite.textline { background-position: 0 -407px !important; width: 213px !important; height: 1px !important; } 
+.sprite.topline { background-position: 0 -413px !important; width: 13px !important; height: 120px !important; } 
+
+/*SPRITE POSITION*/
+.logo 		{top: 504px;left: -1px;}
+.text1 		{top: 24px;left: 21px;}
+.text2 		{top: 100px;left: 21px;}
+.text3		{top: 24px;left: 21px;}
+.text4 		{top: 24px;left: 22px;}
+.text5 		{top: 82px;left: 21px;}
+.text6 		{top: 136px;left: 22px;}
+.textline   {top: 62px;left: 21px;}
+.topline   {top: 0px;left: 241px;}
+
+#cta {top: 201px;left: 21px;width: 118px;height: 25px;background-color: #0b6d65;border: 1px solid #fff;}
+.ctatext 	{top: 8px;left: 9px;}
+.ctaarrow 	{top: 10px;left: 106px;}

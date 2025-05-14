@@ -1,103 +1,160 @@
 <template>
-  <div class="container my-5">
-    <h2 class="display-5 text-center mb-6">My Work</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-4 mb-4" v-for="project in projects" :key="project.id">
-        <div class="iframe-wrapper">
-          <a :href="project.link" data-fancybox="gallery" :data-width="project.width" :data-height="project.height">
-            <div class="iframe-thumbnail">
-              <img :src="require(`@/assets/${project.thumbnail}`)" :alt="project.title" class="img-fluid">
-            </div>
-          </a>
-          <div class="text-center mt-2">
-            <h5>{{ project.title }}</h5>
-            <p>{{ project.description }}</p>
-          </div>
-        </div>
-      </div>
+  <div class="projects-section">
+    <h2 class="display-4">Projects</h2>
+    <div class="projects-grid">
+      <a
+        v-for="project in projects"
+        :key="project.id"
+        :href="project.folder + 'index.html'"
+        data-fancybox="gallery"
+        :data-width="project.width"
+        :data-height="project.height"
+        data-type="iframe"
+        class="project-item"
+      >
+        <img
+          :src="getThumbnail(project.folder)"
+          alt="thumbnail"
+          class="thumb"
+          @error="onImageError"
+        />
+      </a>
     </div>
   </div>
 </template>
 
 <script>
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { Fancybox } from "@fancyapps/ui";
+
 export default {
-  name: 'MyWork',
   data() {
     return {
-      projects: [
-        {
-          id: 1,
-          title: 'Project 1',
-          description: 'A brief description of Project 1.',
-          link: '../Adwork/Bank/index.html',
-          thumbnail: 'thumbnail1.jpg',
-          width: 300,
-          height: 600,
-        },
-        {
-          id: 2,
-          title: 'Project 2',
-          description: 'A brief description of Project 2.',
-          link: '../Adwork/Food/index.html',
-          thumbnail: 'thumbnail2.jpg',
-          width: 970,
-          height: 250,
-        },
-      ],
+      projects: []
     };
   },
   mounted() {
-    this.$nextTick(() => {
-      // eslint-disable-next-line no-undef
-      if (typeof $ !== 'undefined' && typeof $.fancybox !== 'undefined') {
-        // eslint-disable-next-line no-undef
-        $('[data-fancybox]').fancybox({
-          type: "iframe",
-          loop: true,
-          thumbs: {
-              autoStart: false
-          },
-          buttons: ['zoom', 'slideShow', 'fullScreen', 'thumbs', 'close'],
-          transitionEffect: 'slide',
-          animationEffect: 'zoom',
-          animationDuration: 500,
-          iframe: {
-            preload: false,
-          },
+    fetch("/assets/projects.json")
+      .then(response => response.json())
+      .then(data => {
+        this.projects = data;
+        this.$nextTick(() => {
+          Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+              display: ["close"]
+            },
+            Thumbs: true,
+            Carousel: {
+              transition: "slide",
+              Dots: true
+            },
+            iframe: {
+              preload: false,
+              css: {
+                width: '100%',
+                height: '100%'
+              }
+            },
+            on: {
+              "Carousel.change": (fancybox) => {
+                const slide = fancybox.getSlide();
+                if (slide.type === "iframe" && slide.$iframe) {
+                  const iframe = slide.$iframe[0];
+                  const src = iframe.src;
+                  iframe.src = src; // reload iframe
+                }
+              }
+            }
+          });
         });
-      } else {
-        console.error('Fancybox is not initialized.');
-      }
-    });
+      });
   },
+  methods: {
+    getThumbnail(folder) {
+      return `${folder}thumbnail.jpg`;  // Path to thumbnail.jpg
+    },
+    onImageError(e) {
+      e.target.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDMwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDAiLz48L3N2Zz4=";  // Fallback image
+    }
+  }
 };
 </script>
 
 <style scoped>
-/* Scoped styles for My Work page */
-
-/* Ensure iframe is full viewport size */
-.iframe-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
 }
 
-.iframe-thumbnail {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin-bottom: 1rem;
+h2.display-4 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #333;
+  text-align: center;
+  padding-bottom: 3rem;
 }
 
-.iframe-thumbnail img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0.5rem;
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
 }
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000;
+  text-decoration: none;
+  color: #fff;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Hover effect with animation */
+.project-item:hover {
+  animation: scale-up 0.3s forwards; /* Trigger animation on hover */
+}
+.project-item {
+  animation: scale-down 0.3s forwards; /* Scale back down smoothly when mouse leaves */
+}
+
+.thumb {
+  width: 300px;
+  height: 150px;
+  object-fit: cover;
+  background: #000;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Define the scale-up animation */
+@keyframes scale-up {
+  0% {
+    transform: scale(1); /* Initial state: no scaling */
+  }
+  100% {
+    transform: scale(1.05); /* Final state: scale the item to 1.1 */
+  }
+}
+
+
+/* Define the scale-down animation for mouse-out */
+@keyframes scale-down {
+  0% {
+    transform: scale(1.05); /* Initial state: when it's scaled up */
+  }
+  100% {
+    transform: scale(1); /* Final state: scale back to normal */
+  }
+}
+
 </style>

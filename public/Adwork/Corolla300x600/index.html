@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset="UTF-8">
+	<title>Corolla_Cross</title>
+	<meta name="ad.size" content="width=300,height=600"> 
+	<link rel="stylesheet" href="style.css">
+	<script> var clickTag = "https://www.google.com"; </script>
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="container">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="300px" height="600px" viewBox="0 0 300 600" enable-background="new 0 0 300 600" xml:space="preserve">
+                <defs>
+                    <radialGradient id="gradientSky1" cx="150" cy="300" r="0" gradientTransform="matrix(1 0 0 1 0 0)" gradientUnits="userSpaceOnUse">
+                        <stop  offset="0" style="stop-color:#FFFFFF"/>
+                        <stop  offset="0.75" style="stop-color:#FFFFFF;stop-opacity:0.9"/>
+                        <stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                    </radialGradient>
+
+                    <radialGradient id="gradientSky2" cx="150" cy="300" r="0" gradientTransform="matrix(1 0 0 1 0 0)" gradientUnits="userSpaceOnUse">
+                        <stop  offset="0" style="stop-color:#FFFFFF"/>
+                        <stop  offset="0.75" style="stop-color:#FFFFFF;stop-opacity:0.9"/>
+                        <stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                    </radialGradient>
+                   
+                   <mask id="svgMaskSky1"> <rect id=maskElement width="300" height="600" fill="url(#gradientSky1)"/> </mask>
+                   <mask id="svgMaskSky2"> <rect id=maskElement width="300" height="600" fill="url(#gradientSky2)"/> </mask>
+                </defs>
+            <image id="bgSky1" width="300" height="600" x="0" y="0" overflow="visible" xlink:href="bg-sky1.jpg" mask="url(#svgMaskSky1)"></image>
+            <image id="bgSky2" width="300" height="600" x="0" y="0" overflow="visible" xlink:href="bg-sky2.png" mask="url(#svgMaskSky2)"></image>
+        </svg>
+
+        <div class="bot-back-tower2 imgfix"><img src="bot-back-tower2.png" alt=""></div>
+        <div class="bot-back-tower3 imgfix"><img src="bot-back-tower3.png" alt=""></div>
+        <div class="bot-front-tower1 imgfix"><img src="bot-front-tower1.png" alt=""></div>
+        <div class="bot-front-tower2 imgfix"><img src="bot-front-tower2.png" alt=""></div>
+        <div class="bot-front-tower3 imgfix"><img src="bot-front-tower3.png" alt=""></div>
+        <div class="bot-mailbox imgfix"><img src="bot-mailbox.png" alt=""></div>
+        <!-- <div class="bot-meter imgfix"><img src="bot-meter.png" alt=""></div> -->
+        <div class="bot-pigeon imgfix"><img src="bot-pigeon.png" alt=""></div>
+        <div class="bot-traffic imgfix"><img src="bot-traffic.png" alt=""></div>
+        <div class="bot-tree imgfix"><img src="bot-tree.png" alt=""></div>
+
+        <div class="island imgfix"><img src="island.png" alt=""></div>
+
+        <div class="top-mountain imgfix"><img src="top-mountain.png" alt=""></div>
+        <div class="top-tree-back imgfix"><img src="top-tree-back.png" alt=""></div>
+        <div class="top-tree-mid imgfix"><img src="top-tree-mid.png" alt=""></div>
+        <div class="top-tree-right imgfix"><img src="top-tree-right.png" alt=""></div>
+        <div class="top-tree-left2 imgfix"><img src="top-tree-left2.png" alt=""></div>
+        <div class="top-tree-left1 imgfix"><img src="top-tree-left1.png" alt=""></div>
+        <div class="top-tent imgfix"><img src="top-tent.png" alt=""></div>
+        <!-- <div class="top-chair imgfix"><img src="top-chair.png" alt=""></div> -->
+        <div class="top-fire imgfix"><img src="top-fire.png" alt=""></div>
+        <!-- <div class="top-bush imgfix"><img src="top-bush.png" alt=""></div> -->
+        <div class="top-birds imgfix"><img src="top-birds.png" alt=""></div>
+        <div class="top-car imgfix"><img src="top-car.png" alt=""></div>
+        <div class="top-grass imgfix"><img src="top-grass.png" alt=""></div>
+
+        <div class="overlay"><img src="overlay.png" alt=""></div>
+
+        <div class='sprite t1-1 t1'></div>
+        <div class='sprite t2-1 t2'></div>
+
+        <div class="f3-bg"></div>
+        <div class='sprite t3-1 t3'></div>
+        <div class='sprite t3-2 t3'></div>
+        <div class='sprite t3-3 t3'></div>
+        <div class='sprite t3-4 t3'></div>
+        <div class='sprite t3-5 t3'></div>
+<!--        <div class='sprite t3-6 t3'></div>-->
+
+        <div class="f4-mask imgfix">
+            <div class="f4-bg imgfix"><img src="f4-bg.jpg" alt=""></div>
+        </div>
+
+        <div id="cta"><div class='sprite cta-text'></div></div>
+        <div class='sprite logo'></div>
+        <div id='clickthru'></div>
+        <div class='sprite legal3'></div>
+        <div class='sprite btnlegal'></div>
+        <!-- <div class='sprite btnlegal2'></div> -->
+        <div class=legal>
+            <img src='legal.png'/>
+            <div class='sprite btnclose'></div>
+        </div>
+        <div id='border'></div>
+	</div>
+	<script>
+    //--------------preload-img-------------------
+    function preload(arr,f) { $('<div id="preload" />').appendTo('body'); $(arr).each(function () {$('<img />').attr('src',this).appendTo('#preload').hide(); }); window.onload =function(){ f(); $('#preload').remove()} }
+    //--------------vars-------------------
+    var tl = gsap.timeline({delay: .5, defaults: {duration: 0.5,ease: "none" }});
+    //---------------------------------
+    preload([
+        "bg-sky1.jpg",
+        "bg-sky2.png",
+        "bot-back-tower2.png",
+        "bot-back-tower3.png",
+        "bot-front-tower1.png",
+        "bot-front-tower2.png",
+        "bot-front-tower3.png",
+        "bot-mailbox.png",
+        "bot-pigeon.png",
+        "bot-traffic.png",
+        "bot-tree.png",
+        "f4-bg.jpg",
+        "island.png",
+        "overlay.png",
+        "sprite.png",
+        "top-birds.png",
+        "top-car.png",
+        "top-fire.png",
+        "top-grass.png",
+        "top-mountain.png",
+        "top-tent.png",
+        "top-tree-back.png",
+        "top-tree-left1.png",
+        "top-tree-left2.png",
+        "top-tree-mid.png",
+        "top-tree-right.png",
+        "legal.png"
+    ],startAnim);
+    //--------------animations---------------------
+    function startAnim() {
+        //--------------- SET -----------------
+		gsap.set('#container', {display: 'block'});
+		gsap.set('.imgfix', {transformPerspective: 100, willChange: 'transform'});
+        //------------ ADD EVENT --------------
+        addEvent();
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1')
+            // .from('.top-car', {duration: 1, scale: 0, y: 100, rotation: 8, transformOrigin: 'center bottom', ease: 'elastic.out(.8, .9)'}, 'Scene1')
+            .from('.island, .top-grass, .bot-curb', {duration: 1, y: 150, opacity: 0, ease: 'elastic.out(.4, 1)'},'Scene1+=.2')
+
+            // TOP PART //
+            // .from('.top-bush', {duration: 1, scale: 0, x: 10, y: 5, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.5')
+            .from('.top-tree-left1', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.5')
+            .from('.top-tree-left2', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.55')
+            .from('.top-tree-mid', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.55')
+            .from('.top-tree-right', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.65')
+            .from('.top-tree-back', {duration: 1, scaleY: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.7')
+            .from('.top-mountain', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=1')
+            .from('.top-tent', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.6')
+            // .from('.top-chair', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.7')
+            .from('.top-fire', {duration: 1, scale: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.8')
+            .from('.top-birds', {duration: .5, opacity: 0, transformOrigin: 'center bottom', ease: 'elastic.out(.8, 1)'}, 'Scene1+=1.6')
+            .to('.top-birds', {duration: 5, x: -10, y: -5, ease: 'none'}, 'Scene1+=1.6')
+
+            .fromTo('#gradientSky1', {attr:{r: 0}}, {duration: 1.2, attr:{r: 300}, ease: 'none'},'Scene1+=1')
+            .fromTo('#bgSky1', {attr:{x: 10}}, {duration: 10, attr:{x: -10}, ease: 'none'},'Scene1+=1')
+
+            // BOTTOM PART //
+            // .from('.bot-back-tower1', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.6')
+            .from('.bot-back-tower2', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.65')
+            .from('.bot-front-tower1', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.8')
+            // .from('.bot-meter', {duration: 1, scale: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.8')
+            .from('.bot-tree', {duration: 1, scale: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.85')
+            .from('.bot-back-tower3', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.9')
+            .from('.bot-front-tower2', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=.95')
+            .from('.bot-front-tower3', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=1')
+            .from('.bot-mailbox', {duration: 1, scale: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=1.2')
+            .from('.bot-traffic', {duration: 1, scaleY: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=1.25')
+            .from('.bot-pigeon', {duration: 1, scale: 0, transformOrigin: 'center top', ease: 'elastic.out(.8, 1)'}, 'Scene1+=1.0')
+
+            .fromTo('#gradientSky2', {attr:{r: 0}}, {duration: 1.2, attr:{r: 300}, ease: 'none'},'Scene1+=1')
+            .fromTo('#bgSky2', {attr:{x: -10}}, {duration: 10, attr:{x: 10}, ease: 'none'},'Scene1+=1')
+            .from('.t2', {duration: .8, opacity: 0, ease: 'power1.out'}, 'Scene1+=1')
+
+            .add('Scene2', 'Scene1+=4')
+            .from('.f3-bg', {duration: .6, opacity: 0}, 'Scene2')
+            .from('.btnlegal', {duration: .6, autoAlpha: 0}, 'Scene2')
+            .from('.t3', {duration: .8, stagger: .3, opacity: 0, y: 10, ease: 'power1.out'}, 'Scene2+=.6')
+
+            .add('Scene3', 'Scene2+=4')
+            .from('.f4-bg', {duration: 5, scale: 1.1}, 'Scene3')
+            .from('.f4-mask', {duration: .6, height: 0, ease: 'power1.inOut'}, 'Scene3')
+            .to('.f3-bg', {duration: .6, y: 275, ease: 'power2.inOut'}, 'Scene3+=.1')
+            .from('.legal3', {duration: .6, autoAlpha: 0}, 'Scene3')
+            .to('.t3', {duration: .6, y: 138, ease: 'power2.inOut'}, 'Scene3')
+    
+            .add('Scene4', 'Scene3+=4')
+            .to('.t3, .f3-bg,.legal3', {duration: .8, y: '+=325', ease: 'power2.inOut'}, 'Scene4')
+            .to('.btnlegal', {duration: .6, autoAlpha: 0}, 'Scene4')
+            .to('.f4-mask', {duration: .8, height: 0, ease: 'power2.inOut'}, 'Scene4')
+            .from('#cta', {duration: .6, opacity: 0, ease: 'power1.out'}, 'Scene4+=1')
+            .add(hoverFunction, 'Scene4+=1')
+
+        //-------------------------------------
+    };
+
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+        $('.btnlegal').on('click', legalOpen);
+        // $('.btnlegal2').on('click', legalOpen);
+    };
+    
+    function legalOpen(){
+        gsap.to('.legal',{duration:.6,autoAlpha:1});
+        $('.btnclose').on('click', legalClose);
+        tl.pause();
+    }
+
+    function legalClose(){
+        gsap.to('.legal',{duration:.6,autoAlpha:0});
+        tl.play();
+    }
+    
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough("clickTAG");
+        //--studio--> Enabler.exit('Background Exit'); 
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag); /*Studio/Enabler Exit*/
+    }
+    
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+            gsap.to('#cta',{duration:.6,backgroundColor:'#000000'});
+        });
+        $('#clickthru').on('mouseleave', function() {
+            gsap.to('#cta',{duration:.6,backgroundColor:'#eb0a1e'});
+        });
+    }
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--2021-->

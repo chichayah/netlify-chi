@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset="UTF-8">
+	<title>McDo_Angus_300x600_Chi</title>
+	<meta name="ad.size" content="width=300,height=600"> 
+	<link rel="stylesheet" href="style.css">
+	<script> var clickTag = "https://www.google.com"; </script>
+	<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.20.0_d360d9a082ccc13b1a1a9b153f86b378_min.js"></script>
+	<script src="cb_standard.js"></script>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</head>
+<body>
+	<div id="container">
+		<!-- ~~~~~~~~~~~~~~ INSERT DIVS ~~~~~~~~~~~~~~ -->
+        <!-- ADD 'imgfix' CLASS ON ALL IMG TAGS DIVS -->
+		<div class='bg imgfix '>
+			<img src="bg.jpg" alt="Background">
+		</div>
+		
+		<div class="crumbs1"><img src="crumbs1.png" alt=""></div>
+        <div class="crumbs2"><img src="crumbs2.png" alt=""></div>
+        <div class="crumbs3"><img src="crumbs3.png" alt=""></div>
+        <div class="crumbs4"><img src="crumbs4.png" alt=""></div>
+        <div class="crumbs5"><img src="crumbs5.png" alt=""></div>
+        <div class="crumbs6"><img src="crumbs6.png" alt=""></div>
+        <div class="crumbs7"><img src="crumbs7.png" alt=""></div>
+        <div class="crumbs8"><img src="crumbs8.png" alt=""></div>
+        <div class="crumbs9"><img src="crumbs9.png" alt=""></div>
+        <div class="crumbs0"><img src="crumbs0.png" alt=""></div>
+		
+		<div id="smokeHolder"></div>
+		<div class="bun-top"><img src="bun-top.png" alt=""></div>
+        <div class="bun-bot"><img src="bun-bot.png" alt=""></div>
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	     width="300px" height="600px" viewBox="0 0 300 600" style="enable-background:new 0 0 300 600;" xml:space="preserve">
+             <defs>
+                 <mask id="svgMask">
+                    <polygon id=maskElement fill="#FFB63A" points="0,0 0,600 300,600 300,0 "/>
+                </mask>
+             </defs>
+            <g mask="url(#svgMask)">
+                <text class="text1-cont" id="text1-1" transform="matrix(1 0 0 1 65.3333 220.6667)">JUICY</text>
+                <text class="text1-cont" id="text1-2" transform="matrix(1 0 0 1 42.3333 318.6667)">SMOKY</text>
+                <text class="text1-cont" id="text1-3" transform="matrix(1 0 0 1 41.3332 416.3333)">CRISPY</text>
+            </g>
+        </svg>
+        
+        <div class="burger1 burger-filling"><img src="burger1.png" alt=""></div>
+        <div class="burger2 burger-filling"><img src="burger2.png" alt=""></div>
+        <div class="burger3 burger-filling"><img src="burger3.png" alt=""></div>
+        <div class="burger4 burger-filling"><img src="burger4.png" alt=""></div>
+        <div class="burger5 burger-filling"><img src="burger5.png" alt=""></div>
+        <div class="burger6 burger-filling"><img src="burger6.png" alt=""></div>
+        <div class="burger7 burger-filling"><img src="burger7.png" alt=""></div>
+        <div class="burger8 burger-filling"><img src="burger8.png" alt=""></div>
+        <div class="burger9 burger-filling"><img src="burger9.png" alt=""></div>
+        <div class="burger0 burger-filling"><img src="burger0.png" alt=""></div>
+
+        <div class="text2"><img src="text2.png" alt=""></div>
+        <div class="text3 textend"><img src="text3.png" alt=""></div>
+        <div class="text4 textend"><img src="text4.png" alt=""></div>
+        <div class="text5 textend"><img src="text5.png" alt=""></div>
+        <div class='logo'><img src="logo.png" alt=""></div>
+        <div class='legal'><img src="legal.png" alt=""></div>
+        <div id="cta">
+            <div class="ctatext"><img src="ctatext.png" alt=""></div>
+            <div class="ctahover"><img src="ctahover.png" alt=""></div>
+        </div>
+        <div id='clickthru'></div>
+        
+		<!-- ~~~~~~~~~~~~~~ INSERT DIVS ~~~~~~~~~~~~~~ -->
+	</div>
+	<script src="smoke.js"></script>
+	<script>
+		var tl = new TimelineMax();
+        var tlHover = new TimelineMax({paused: true});
+		function initAd() {
+			//--------- PRE-LOAD IMAGE ------------
+			startPreload('bg.jpg',      'bun-bot.png', 'bun-top.png', 'ctahover.png', 
+                         'ctatext.png', 'legal.png',   'logo.png',    'smoke_clear.png', 
+                         'text2.png',   'text3.png',   'text4.png',   'text5.png', 
+                         'burger0.png', 'burger1.png', 'burger2.png', 'burger3.png',
+                         'burger4.png', 'burger5.png', 'burger6.png', 'burger7.png',
+                         'burger8.png', 'burger9.png', 'crumbs0.png', 'crumbs1.png', 
+                         'crumbs2.png', 'crumbs3.png', 'crumbs4.png', 'crumbs5.png',
+                         'crumbs6.png', 'crumbs7.png', 'crumbs8.png', 'crumbs9.png', 
+                         startAnim);
+			//-------------------------------------
+			function startAnim() {
+				//--------------- SET -----------------
+				TweenMax.set('#container', {display: 'block'});
+                TweenMax.set('.sprite', { rotation:0.01});
+                TweenMax.set('.imgfix', { rotation:0.01});
+                TweenMax.set('img', { force3D: true, rotation:0.01});
+                TweenMax.set('.text1-cont', { force3D: true, rotation:0.01} );
+                TweenMax.set('.ctahover', { opacity: 0 } );
+				//------------ ADD EVENT --------------
+				addEvent();
+                
+				//---------- ADD ANIMATION ------------
+				tl
+                    //=========================
+                    .add('Frame1')
+                    .staggerFrom('.text1-cont', .8, {opacity: 0, x: '+=4'}, .8,  'Frame1')
+                
+                    .add('Frame2', '+=1')
+                    .to('#maskElement', 0.5, {attr:{points: "0,0 0,600 300,600 300,370"}}, 'Frame2+=.05')
+                    .to('#maskElement', 0.59, {attr:{points: "0,370 0,370 300,370 300,370"}, ease: Power3.easeIn}, 'Frame2+=.1')
+                    .from('.bun-top', 1.0, {y: -370, rotation: 10, ease: Power4.easeIn}, 'Frame2-=.33')
+                    .from('.bun-bot', 1.0, {y:  230, ease: Power4.easeIn}, 'Frame2-=.33')
+                    .from('.burger-filling', .3, {scale: 0.6, opacity: 0, y: '-=10px', ease: Power4.easeIn}, 'Frame2+=.4')
+                
+                    .add('Frame3')
+                    .to('.bun-top', .5, {scaleY: .95, y: '+=9', rotation: -2, yoyo: true, repeat: 1}, 'Frame3')
+                    .to('.bun-bot', .5, {scaleY: .95, yoyo: true, repeat: 1}, 'Frame3')
+                    .to('.burger-filling', .5, {scaleY: .93, y: '+=3', yoyo: true, repeat: 1}, 'Frame3')
+                    .to('.burger4', .5, {rotation: -1, scale: 1.03, x: '+=7', yoyo: true, repeat: 1}, 'Frame3')
+                    .to('.burger5', .5, {rotation:  3, scale: 1.03, x: '-=3', yoyo: true, repeat: 1}, 'Frame3')
+                    .to('.burger3', .5, {rotation:  1, scale: 1.05, y: '+=7', yoyo: true, repeat: 1}, 'Frame3')
+                    .to('.burger6', .5, {scale: 1.01, y: '+=7', yoyo: true, repeat: 1}, 'Frame3')
+                    .from('.crumbs1', .05, {opacity: 0, y: '-171px', x: '17px'}, 'Frame3')
+                    .from('.crumbs2', .05, {opacity: 0, y: '-175px', x: '10px'}, 'Frame3+=.1')
+                    .from('.crumbs3', .1, {opacity: 0}, 'Frame3+=.1')
+                    .from('.crumbs4', .05, {opacity: 0, y: '-171px', x: '-5px'}, 'Frame3+=.1')
+                    .from('.crumbs5', .05, {opacity: 0, y: '-171px', x: '-5px'}, 'Frame3')
+                    .from('.crumbs6', .05, {opacity: 0, y: '-171px', x: '5px'}, 'Frame3+=.1')
+                    .from('.crumbs7', .1, {opacity: 0}, 'Frame3+=.05')
+                    .from('.crumbs8', .1, {opacity: 0, y: '-171px', x: '-17px'}, 'Frame3+=.05')
+                    .from('.crumbs9', .1, {opacity: 0, y: '-171px', x: '17px'}, 'Frame3+=.05')
+                    .from('.crumbs0', .1, {opacity: 0, y: '-171px', x: '17px'}, 'Frame3+=.1')
+                    
+                    .add('Frame4')
+                    .from('.text2', .8, {opacity: 0}, 'Frame4')
+                    .staggerFrom('.textend', .8, {opacity: 0, y: '+=8'}, .4,  'Frame4+=1')
+                    .from('.legal', .8, {opacity: 0}, 'Frame4+=2.4')
+                    .from('#cta', .8, {opacity: 0}, 'Frame4+=3.2')
+                    .from('#smokeHolder', .8, {opacity: 0}, 'Frame4+=3.2')
+                    .add(addSmoke, 'Frame4+=3.2')
+                    .add(hoverFunction, 'Frame4+=3.2')
+//                    tl.timeScale(.1)
+//                    .play('Frame2')
+                
+                tlHover
+                    .to('.bun-top', .5, {scaleY: .95, y: '+=9', rotation: -2}, 'Frame3')
+                    .to('.bun-bot', .5, {scaleY: .95}, 'Frame3')
+                    .to('.burger-filling', .5, {scaleY: .93, y: '+=3'}, 'Frame3')
+                    .to('.burger4', .5, {rotation: -1, scale: 1.03, x: '+=7'}, 'Frame3')
+                    .to('.burger5', .5, {rotation:  3, scale: 1.03, x: '-=3'}, 'Frame3')
+                    .to('.burger3', .5, {rotation:  1, scale: 1.05, y: '+=7'}, 'Frame3')
+                    .to('.burger6', .5, {scale: 1.01, y: '+=7'}, 'Frame3')
+				//-------------------------------------
+			};
+            
+			function addEvent() {
+				//--------------- SET -----------------
+				//To add:		_(object).on(events,  function);
+				//To remove:	_(object).off(events, function);
+				//-------------------------------------
+				_('#clickthru').on('click', exit);
+			};
+			
+			function exit() {
+				window.open(clickTag); /*Standard Exit*/
+				console.log('Exit')
+			}
+			
+            function hoverFunction() {
+                _('#clickthru').on('mouseenter', function() {
+                    TweenMax.to('#cta', 		0.6, {backgroundColor:'#000000'});
+                    TweenMax.to('.ctatext', 	0.6, { opacity:0});
+                    TweenMax.to('.ctahover', 	0.6, { opacity:1 });
+                    tlHover.play();
+                });
+                _('#clickthru').on('mouseleave', function() {
+                    TweenMax.to('#cta', 		0.6, {backgroundColor:'#ffcc37'});
+                    TweenMax.to('.ctatext', 	0.6, {opacity:1});
+                    TweenMax.to('.ctahover', 	0.6, {opacity:0});
+                    tlHover.reverse();
+                });
+            }
+            
+            function addSmoke(){
+                var smokeAmount = 50;
+                var smoke = new Smoke(_('#smokeHolder').c,'canvasSmoke','smoke_clear.png',300,600,{x : 300/2, y : (600/2)},smokeAmount);
+                smoke.start(true);
+                smoke.setWind(0);
+                
+            }
+            //-------------------------------------
+            
+		};
+	</script>
+</body>
+</html>
+
+<!--1018V2-->

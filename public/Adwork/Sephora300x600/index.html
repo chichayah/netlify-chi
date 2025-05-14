@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset='UTF-8'>
+	<title>Sephora</title>
+	<meta name='ad.size' content='width=300,height=600'> 
+	<link rel='stylesheet' href='style.css'>
+	<script> var clickTag = 'https://www.google.com'; </script>
+    <script src='https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src='https://s0.2mdn.net/ads/studio/cached_libs/preloadjs_1.0.0_min.js'></script>
+	<script src="MorphSVGPlugin.min.js"></script>
+</head>
+<body>
+	<div id='container'>
+		<div class='bg'></div>
+		
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="300px" height="600px" viewBox="0 0 300 600" enable-background="new 0 0 300 600" xml:space="preserve">
+            <path id="purplepath2" fill="#C01B7E" d="M353.4,413c19.1-14.2,25.1-40.8,37.3-59.1c8.6-13,25.4-16.5,29.9-31.9
+	c14.6-49.8,6.3-113.3-34.9-196.1c0,0,33.3,1.3,0.7-33.3C332-5.3-52.3,114.2-42.1,254.1c-18.7,38.5,11.8,81,20.3,132.3
+	C16.4,557.8,353.4,413,353.4,413z"/>
+           
+                <path id="redpath2" fill="#D62627" d="M-119.2,148.8c0,0,231.3-203.4,512.3-43.5c0,0,94.7,287.2-208,313.6C185,418.9-74.2,453.1-119.2,148.8z"/>
+           
+            <path id="purplepath1" fill="#C01B7E" d="M452,146.6c-74.3-44-131.5-82.3-212.1-96.5c-36.1-6.3-77-7.8-126.1-2.7
+            c-42.6,4.4-77.9,41.2-101,87.8c-17.9,36.1-28.5,78-29.5,115.4c-0.4,11.9,0.3,23.3,2,33.9c3.4,21.9,11.3,40.4,24.3,52.6
+            c59.7,56.5,120.5,106.2,181,129.6c22.1,8.6,44.3,13.6,66.3,14.1c15.6,0.4,31.1-1.4,46.6-5.9c49.9-14.2,99.2-55.2,147.1-134.2
+            c0,0,32.8-39.3,44.6-85.3C505,217.7,500.6,175.3,452,146.6z"/>
+            <path id="redpath1" fill="#D62627" d="M406.9,366.4c-3.3-37.5-34.8-107-78.3-183.4c-39.7-69.9-123.7-93.2-175.7-93.3
+            c-15,0-37.1-1.9-62.8-4.1C-8.4,77.3-160,64.4-173.5,132.5c-10.9,54.9,14.8,146.8,38.5,193.1c7.8,15.1,37,34.9,73.9,54.6
+            c68.3,36.5,162.7,73,195.9,80.2c39,8.5,101.6,16.9,157.4,2.4c17.4-4.5,34.1-11.2,49.2-20.8c0,0,6.4-2.4,15.2-7.1
+            C376.9,424.2,409.9,401,406.9,366.4z"/>
+        </svg>
+        
+        <div class="truck-holder imgfix">
+            <div class="truck imgfix"><img src="truck.png" alt=""></div>
+            <div class="truckstar-2 imgfix star"><img src="truckstar-2.png" alt=""></div>
+            <div class="truckstar-3 imgfix star"><img src="truckstar-3.png" alt=""></div>
+            <div class="truckstar-1 imgfix star"><img src="truckstar-1.png" alt=""></div>
+        </div>
+
+        <div class='sprite text1-1 t1'></div>
+        <div class='sprite text1-2 t1'></div>
+        <div class='sprite text1-3 t1'></div>
+        <div class='sprite text2-1 t2'></div>
+        <div class='sprite text2-2 t2'></div>
+        <div class='sprite text2-3 t2'></div>
+        <div class='sprite text3-1 t3'></div>
+        <div class='sprite text3-2 t3'></div>
+        <div class='sprite text4-1 t4a'></div>
+        <div class='sprite text4-2 t4a'></div>
+        <div class='sprite text4-3 t4a'></div>
+        <div class='sprite text4-4 t4b'></div>
+        <div class='sprite text4-5 t4b'></div>
+       
+        <div class='cta'>
+            <div class='sprite logo'></div>
+            <div class='sprite cta-arrow'></div>
+            <div class='sprite cta-text'></div>
+        </div>
+        
+        <div id='border'></div>
+        <div id='clickthru'></div>
+        
+	</div>
+	<script>
+	var assets,manifest,scripts;
+    //platforms = Standard / Adgear / Adwords / Sizmek = Standard / Studio
+//    var platform = 'Standard';
+//    switch(platform){
+//        case 'Studio':
+//            scripts = 'https://s0.2mdn.net/ads/studio/Enabler.js';
+//        break;
+//        case 'Adgear':
+//            scripts = 'https://tpc.googlesyndication.com/pagead/gadgets/html5/api/exitapi.js';
+//        break;
+//        case 'Adwords':
+//            scripts = 'https://tpc.googlesyndication.com/pagead/gadgets/html5/api/exitapi.js';
+//        break;
+//        default:break;
+//    }
+    //--------------preload---------------------
+    
+    function preloadfiles(){
+        assets = new createjs.LoadQueue(false);
+        manifest=[
+            {src: 'sprite.png'},
+            {src: 'truck.png'},
+            {src: 'truckstar-1.png'},
+            {src: 'truckstar-2.png'},
+            {src: 'truckstar-3.png'}
+        ];
+        if(scripts) manifest.push({src:scripts}); 
+        assets.loadManifest(manifest);
+        assets.on('complete',function(){
+            if(scripts){
+                var js = document.createElement('script');
+                js.src = scripts;
+            }
+            startAnim();
+        });
+
+    }
+    window.onload = preloadfiles();
+    //--------------animations---------------------
+    var tl = gsap.timeline({defaults: {duration: 2, ease: "power4.inOut" }});
+    var tlMorph = gsap.timeline();
+    function startAnim() {
+        //--------------- SET -----------------
+        gsap.set('#container', {display: 'block'});
+        gsap.set('svg', {rotation: 0.001, force3D: true});
+        gsap.set('.imgfix', {rotation: 0.001, force3D: true});
+        gsap.set('.sprite', {rotation: 0.001, force3D: true});
+        //------------ ADD EVENT --------------
+        addEvent();
+        hoverFunction();
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1')
+            .from('.t1', { x: -450},'Scene1')
+            .from('.truck', { x: -450 },'Scene1+=.1')
+            .from('.star', { stagger: .1, duration: 1, scale: 0, opacity: 0, ease: "back.out(1.7)", repeat: 3, yoyo: true},'Scene1+=1.6')
+        
+            .add('Scene2','-=1')
+            .to('.t1', { x: 450 },'Scene2')
+            .to('.truck-holder', { x: 450 },'Scene2')
+            .from('.t2', { x: -450},'Scene2+=.1')
+        
+            .add('Scene3','+=2')
+            .to('.t2', { x: 450 },'Scene3')
+            .from('.t3', { stagger: .2, x: -450 },'Scene3+=.1')
+        
+            .add('Scene4','+=2')
+            .to('.t3', { x: 450 },'Scene4')
+            .from('.t4a', { x: -450 },'Scene4+=.1')
+            .from('.t4b', { x: -450 },'Scene4+=.3')
+            .to('.cta-arrow', {duration:0.3, x:5, yoyo:true, repeat:3, ease: "power1.inOut"})
+        
+        tlMorph
+            //=========================
+            .to("#purplepath1", {duration: 5, morphSVG: "#purplepath2", yoyo: true, repeat: 3, yoyo: true, ease: 'none'}, 0)
+            .to("#redpath1", {duration: 5, morphSVG: "#redpath2", yoyo: true, repeat: 3, yoyo: true, ease: 'none'}, 0)
+        //-------------------------------------
+    };
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+    };
+    
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough('clickTAG');
+        //--studio--> Enabler.exit('Background Exit'); 
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag);
+    }
+    
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+
+            gsap.to('.cta-arrow', {duration:0.3, x:5, yoyo:true, repeat:3, ease: "power1.inOut"})
+        });
+        $('#clickthru').on('mouseleave', function() {
+        });
+    }
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--1018V2-->

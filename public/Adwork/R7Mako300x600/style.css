@@ -1,0 +1,142 @@
+body {margin: 0px;}
+
+#container {
+	background-color: black;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	pointer-events: none;
+    width: 300px;
+	height: 600px;
+}
+
+#container * {
+	position: absolute;
+}
+
+
+#border{
+    border: 1px solid gray;  
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#clickthru{
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+}
+
+/*-------------- SPRITE -------------*/
+.sprite { background: url('sprite.png') no-repeat top left; width: 252px; height: 912px; background-size: 252px 912px;  } 
+.sprite.cta-arrow1 { background-position: 0 0; width: 8px; height: 11px; } 
+.sprite.cta-arrow2 { background-position: 0 -16px; width: 8px; height: 11px; } 
+.sprite.cta-t1 { background-position: 0 -32px; width: 140px; height: 12px; } 
+.sprite.cta-t2 { background-position: 0 -49px; width: 140px; height: 12px; } 
+.sprite.cta1 { background-position: 0 -66px; width: 185px; height: 35px; } 
+.sprite.cta2 { background-position: 0 -106px; width: 185px; height: 35px; } 
+.sprite.f1-t2 { background-position: 0 -146px; width: 225px; height: 32px; } 
+.sprite.f1-t1 { background-position: 0 -183px; width: 75px; height: 19px; } 
+.sprite.f1-t3 { background-position: 0 -207px; width: 103px; height: 82px; } 
+.sprite.f1-t4 { background-position: 0 -294px; width: 103px; height: 82px; } 
+.sprite.f2-t2 { background-position: 0 -381px; width: 252px; height: 32px; } 
+.sprite.f3-t1 { background-position: 0 -418px; width: 75px; height: 19px; } 
+.sprite.f3-t2 { background-position: 0 -442px; width: 248px; height: 32px; } 
+.sprite.f2-t1 { background-position: 0 -479px; width: 75px; height: 19px; } 
+.sprite.f4-logo { background-position: 0 -503px; width: 137px; height: 27px; } 
+.sprite.f4-code { background-position: 0 -535px; width: 156px; height: 75px; } 
+.sprite.f4-border { background-position: 0 -615px; width: 237px; height: 164px; } 
+.sprite.f4-name { background-position: 0 -784px; width: 131px; height: 9px; } 
+.sprite.f4-t2 { background-position: 0 -798px; width: 217px; height: 32px; } 
+.sprite.f4-t1 { background-position: 0 -835px; width: 146px; height: 19px; } 
+.sprite.f4-t3 { background-position: 0 -859px; width: 219px; height: 19px; } 
+.sprite.f4-t4 { background-position: 0 -883px; width: 222px; height: 29px; } 
+
+/*--------- SPRITE POSITION ---------*/
+.cta-t1,.cta-t2 {top: 12px;left: 19px;}
+.cta-arrow1,.cta-arrow2 {top: 13px;left: 164px;}
+.cta-t2,.cta-arrow2, .cta2 {opacity:0; }
+.f1-t1 {top: 62px;left: 113px;}
+.f1-t2 {top: 88px;left: 40px;}
+.f1-t3 {top: 473px;left: 28px;}
+.f1-t4 {top: 473px;left: 175px;}
+.f2-t1 {top: 62px;left: 113px;}
+.f2-t2 {top: 88px;left: 25px;}
+.f3-t1 {top: 437px;left: 113px;}
+.f3-t2 {top: 463px;left: 27px;}
+.f4-t1 {top: 96px;left: 77px;}
+.f4-t2 {top: 123px;left: 41px;}
+.f4-t3 {top: 351px;left: 41px;}
+.f4-t4 {top: 380px;left: 40px;}
+.f4-border {top: 410px;left: 32px;}
+.f4-code {top: 452px;left: 76px;}
+.f4-logo {top: 22px;left: 86px;}
+.f4-name {top: 66px;left: 85px;}
+
+.f1-arrow-left {top: 58px;left: 72px; width: 32px; height: 25px; overflow: hidden;}
+.f1-arrow-right {top: 58px;left: 196px; width: 32px; height: 25px; overflow: hidden;}
+.f2-arrow-left {top: 58px;left: 72px; width: 32px; height: 25px; overflow: hidden;}
+.f2-arrow-right {top: 58px;left: 196px; width: 32px; height: 25px; overflow: hidden;}
+.f3-arrow-left {top: 434px;left: 72px;width: 32px;height: 25px;overflow: hidden;}
+.f3-arrow-right {top: 434px;left: 196px;width: 32px;height: 25px;overflow: hidden;}
+.f4-arrow-left {top: 93px;left: 42px;width: 32px;height: 25px;overflow: hidden;}
+.f4-arrow-right {top: 93px;left: 226px;width: 32px;height: 25px;overflow: hidden;}
+
+/*-------- IMAGES | POSITION --------*/
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bg, .frames {
+	width: 100%;
+	height: 100%;
+}
+
+.f1-mag1, .f1-mag2, .f2-gun, .f3-gun, .f4-gun, .f4-header, .f4-footer {
+	width: 100%;
+	height: 100%;
+}
+
+.f4-x1 {
+	top: 207px;
+	left: 7px;
+}
+
+.f4-x2 {
+	top: 230px;
+	left: 7px;
+}
+
+.f4-x3 {
+	top: 255px;
+	left: 7px;
+}
+
+.f4-x4 {
+	top: 277px;
+	left: 7px;
+}
+
+.f4-x5 {
+	top: 301px;
+	left: 7px;
+}
+
+.f4-x img {
+	width: 7px;
+	height: 7px; 
+}
+
+.cta {
+	width: 185px;
+	height: 35px;
+	top: 554px;
+	left: 58px;
+	overflow: hidden;
+}
+
+

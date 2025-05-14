@@ -1,0 +1,264 @@
+body {margin: 0px;}
+
+#container {
+	background-color: white;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	pointer-events: none;
+    width: 300px;
+	height: 600px;
+}
+
+#container * {
+	position: absolute;
+}
+
+
+#border{
+    border: 1px solid gray;  
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#clickthru{
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+}
+
+/*-------------- SPRITE -------------*/
+.sprite { background: url('sprite.png') no-repeat top left; width: 200px; height: 451px; background-size: 200px 451px;  } 
+.sprite.btnlegal { background-position: 0 0; width: 22px; height: 9px; } 
+.sprite.t3-1 { background-position: 0 -14px; width: 186px; height: 16px; } 
+.sprite.btnclose { background-position: 0 -35px; width: 35px; height: 9px; } 
+.sprite.t3-2 { background-position: 0 -49px; width: 174px; height: 27px; } 
+.sprite.t3-3 { background-position: 0 -81px; width: 116px; height: 27px; } 
+.sprite.t1-1 { background-position: 0 -113px; width: 193px; height: 118px; } 
+.sprite.t3-4 { background-position: 0 -236px; width: 200px; height: 26px; } 
+.sprite.legal3 { background-position: 0 -267px; width: 92px; height: 9px; } 
+.sprite.t3-5 { background-position: 0 -281px; width: 186px; height: 27px; } 
+.sprite.t2-1 { background-position: 0 -313px; width: 130px; height: 34px; } 
+.sprite.cta-text { background-position: 0 -352px; width: 95px; height: 12px; } 
+.sprite.logo { background-position: 0 -369px; width: 82px; height: 82px; } 
+
+/*--------- SPRITE POSITION ---------*/
+.cta-text {top: 6px;left: 6px;}
+.logo {bottom: 0px;right: 0px;}
+.t1-1 {top: 19px;left: 18px;}
+.t2-1 {top: 542px;left: 19px;}
+.t3-1 {top: 177px;left: 49px;}
+.t3-2 {top: 201px;left: 46px;}
+.t3-3 {top: 235px;left: 47px;}
+.t3-4 {top: 270px;left: 47px;}
+.t3-5 {top: 303px;left: 50px;}
+.btnlegal,.btnlegal2 {bottom: 8px;left: 8px;pointer-events: auto;}
+.btnclose {top: 8px;right: 7px;pointer-events: auto;}
+.legal{opacity: 0;}
+.legal3{top: 262px;left: 8px;}
+
+/*-------- IMAGES | POSITION --------*/
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bg, .overlay, .f3-bg, .legal {
+	width: 100%;
+	height: 100%;
+}
+
+.f3-bg, .legal {
+	background-color: white;
+}
+
+.f4-bg {
+	width: 300px;
+	height: 275px;
+	top: 0px;
+}
+
+.f4-mask {
+	width: 300px;
+	height: 275px;
+	overflow: hidden;
+}
+
+.island, .top-grass {
+	top: 259px;
+	left: -77px;
+	width: 472px;
+	height: 179px;
+}
+
+.top-birds {
+	top: 156px;
+	left: 59px;
+	width: 26px;
+	height: 34px;
+}
+
+.top-bush {
+	top: 133px;
+	left: 24px;
+	width: 33px;
+	height: 40px;
+}
+
+.top-car {
+	top: 249px;
+	left: 1px;
+	width: 290px;
+	height: 130px;
+}
+
+.top-chair {
+	top: 117px;
+	left: 228px;
+	width: 19px;
+	height: 22px;
+}
+
+.top-fire {
+	top: 310px;
+	left: 275px;
+	width: 62px;
+	height: 23px;
+}
+
+.top-mountain {
+	top: 145px;
+	left: 3px;
+	width: 254px;
+	height: 125px;
+}
+
+.top-tent {
+	top: 265px;
+	left: 196px;
+	width: 140px;
+	height: 66px;
+}
+
+.top-tree-back {
+	top: 159px;
+	left: 11px;
+	width: 315px;
+	height: 138px;
+}
+
+.top-tree-left1 {
+	top: 218px;
+	left: -41px;
+	width: 70px;
+	height: 124px;
+}
+
+.top-tree-left2 {
+	top: 142px;
+	left: -27px;
+	width: 113px;
+	height: 164px;
+}
+
+.top-tree-mid {
+	top: 116px;
+	left: 82px;
+	width: 55px;
+	height: 171px;
+}
+
+.top-tree-right {
+	top: 100px;
+	left: 136px;
+	width: 224px;
+	height: 237px;
+}
+
+.bot-back-tower1 {
+	top: 411px;
+	left: 88px;
+	width: 61px;
+	height: 118px;
+}
+
+.bot-back-tower2 {
+	top: 376px;
+	left: 61px;
+	width: 149px;
+	height: 193px;
+}
+
+.bot-back-tower3 {
+	top: 386px;
+	left: 262px;
+	width: 39px;
+	height: 138px;
+}
+
+.bot-front-tower1 {
+	top: 352px;
+	left: -46px;
+	width: 180px;
+	height: 181px;
+}
+
+.bot-front-tower2 {
+	top: 346px;
+	left: 171px;
+	width: 94px;
+	height: 264px;
+}
+
+.bot-front-tower3 {
+	top: 366px;
+	left: 255px;
+	width: 107px;
+	height: 105px;
+}
+
+.bot-mailbox {
+	top: 384px;
+	left: 236px;
+	width: 42px;
+	height: 71px;
+}
+
+.bot-meter {
+	top: 178px;
+	left: 35px;
+	width: 9px;
+	height: 44px;
+}
+
+.bot-pigeon {
+	top: 391px;
+	left: 109px;
+	width: 18px;
+	height: 20px;
+}
+
+.bot-traffic {
+	top: 387px;
+	left: 212px;
+	width: 139px;
+	height: 256px;
+}
+
+.bot-tree {
+	top: 380px;
+	left: -59px;
+	width: 129px;
+	height: 211px;
+}
+
+#cta {
+	width: 107px;
+	height: 24px;
+	background-color: #eb0a1e;
+	top: 146px;
+	left: 23px;
+}

@@ -1,0 +1,18 @@
+[
+  { "id": 1, "title": "Armstrong", "folder": "../Adwork/Armstrong300x250/", "width": 300, "height": 250 },
+  { "id": 2, "title": "Bank", "folder": "../Adwork/Bank300x600/", "width": 300, "height": 600 },
+  { "id": 3, "title": "BlackWidow", "folder": "../Adwork/BlackWidow300x600/", "width": 300, "height": 600 },
+  { "id": 4, "title": "Corolla", "folder": "../Adwork/Corolla300x600/", "width": 300, "height": 600 },
+  { "id": 5, "title": "DoorDash", "folder": "../Adwork/DoorDash480x320/", "width": 480, "height": 320 },
+  { "id": 6, "title": "Food", "folder": "../Adwork/Food970x250/", "width": 970, "height": 250 },
+  { "id": 7, "title": "LittlePrince", "folder": "../Adwork/LittlePrince300x250/", "width": 300, "height": 250 },
+  { "id": 8, "title": "Manhattan", "folder": "../Adwork/Manhattan300x250/", "width": 300, "height": 250 },
+  { "id": 9, "title": "McDo", "folder": "../Adwork/McDo_300x600/", "width": 300, "height": 600 },
+  { "id": 10, "title": "Mobile", "folder": "../Adwork/Mobile300x600/", "width": 300, "height": 600 },
+  { "id": 11, "title": "R7Mako", "folder": "../Adwork/R7Mako300x600/", "width": 300, "height": 600 },
+  { "id": 12, "title": "Run", "folder": "../Adwork/Run300x250/", "width": 300, "height": 250 },
+  { "id": 13, "title": "SEI", "folder": "../Adwork/SEI300x600/", "width": 300, "height": 600 },
+  { "id": 14, "title": "Sephora", "folder": "../Adwork/Sephora300x600/", "width": 300, "height": 600 },
+  { "id": 15, "title": "Spotify", "folder": "../Adwork/Spotify_300x250/", "width": 300, "height": 250 },
+  { "id": 16, "title": "Video", "folder": "../Adwork/Video300x600/", "width": 300, "height": 600 }
+]

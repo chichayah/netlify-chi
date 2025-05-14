@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset='UTF-8'>
+	<title>R7 Mako Digital Ad Animations</title>
+	<meta name='ad.size' content='width=300,height=600'> 
+	<link rel='stylesheet' href='style.css'>
+	<script> var clickTag = 'https://www.google.com'; </script>
+    <script src='https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src='https://s0.2mdn.net/ads/studio/cached_libs/preloadjs_1.0.0_min.js'></script>
+</head>
+<body>
+	<div id='container'>
+		<div class="frame1 frames">
+            <div class="f1-bg bg imgfix"><img src="blue-bg.jpg" alt=""></div>
+            <div class="f1-arrow-left f1-t1a imgfix">
+                <img id='left-arrow1' src="black-arrow-left.png" alt="">
+                <img id='left-arrow2' src="black-arrow-left.png" alt="">
+            </div>
+            <div class="f1-arrow-right f1-t1a imgfix">
+                <img id='right-arrow1' src="black-arrow-right.png" alt="">
+                <img id='right-arrow2' src="black-arrow-right.png" alt="">
+            </div>
+            <div class='sprite f1-t1 f1-t1a'></div>
+            <div class='sprite f1-t2 f1-t1a'></div>
+            <div class='sprite f1-t3 f1-t1b'></div>
+            <div class='sprite f1-t4 f1-t1b'></div>
+            <div class="f1-mag1 mags imgfix"><img src="f1-mag1.png" alt=""></div>
+            <div class="f1-mag2 mags imgfix"><img src="f1-mag2.png" alt=""></div>
+        </div>
+
+        <div class="frame2 frames">
+            <div class="f2-bg bg imgfix"><img src="white-bg.jpg" alt=""></div>
+            <div class="f2-arrow-left f2-t1a imgfix">
+                <img id='left-arrow1' src="blue-arrow-left.png" alt="">
+                <img id='left-arrow2' src="blue-arrow-left.png" alt="">
+            </div>
+            <div class="f2-arrow-right f2-t1a imgfix">
+                <img id='right-arrow1' src="blue-arrow-right.png" alt="">
+                <img id='right-arrow2' src="blue-arrow-right.png" alt="">
+            </div>
+            <div class='sprite f2-t1 f2-t1a'></div>
+            <div class='sprite f2-t2 f2-t1a'></div>
+            <div class="f2-gun imgfix"><img src="f2-gun.png" alt=""></div>
+        </div>
+
+        <div class="frame3 frames">
+            <div class="f3-bg bg imgfix"><img src="blue-bg.jpg" alt=""></div>
+            <div class="f3-arrow-left f3-t1a imgfix">
+                <img id='left-arrow1' src="black-arrow-left.png" alt="">
+                <img id='left-arrow2' src="black-arrow-left.png" alt="">
+            </div>
+            <div class="f3-arrow-right f3-t1a imgfix">
+                <img id='right-arrow1' src="black-arrow-right.png" alt="">
+                <img id='right-arrow2' src="black-arrow-right.png" alt="">
+            </div>
+            <div class='sprite f3-t1 f3-t1a'></div>
+            <div class='sprite f3-t2 f3-t1a'></div>
+            <div class="f3-gun imgfix"><img src="f3-gun.png" alt=""></div>
+        </div>
+
+        <div class="frame4 frames">
+            <div class="f4-bg bg imgfix"><img src="white-bg.jpg" alt=""></div>
+
+            <!-- X COLUMNS -->
+            <div class="f4-x1 f4-x"></div>
+            <div class="f4-x2 f4-x"></div>
+            <div class="f4-x3 f4-x"></div>
+            <div class="f4-x4 f4-x"></div>
+            <div class="f4-x5 f4-x"></div>
+
+            <div class="f4-arrow-left f4-t1a imgfix">
+                <img id='left-arrow1' src="blue-arrow-left.png" alt="">
+                <img id='left-arrow2' src="blue-arrow-left.png" alt="">
+            </div>
+            <div class="f4-arrow-right f4-t1a imgfix">
+                <img id='right-arrow1' src="blue-arrow-right.png" alt="">
+                <img id='right-arrow2' src="blue-arrow-right.png" alt="">
+            </div>
+
+            <div class="f4-header header imgfix"><img src="f4-header.png" alt=""></div>
+            <div class='sprite f4-logo header'></div>
+            <div class='sprite f4-name'></div>
+
+            <div class="f4-footer footer imgfix"><img src="f4-footer.png" alt=""></div>
+            <div class='sprite f4-border'></div>
+            <div class='sprite f4-code'></div>
+
+            <div class='sprite f4-t1 f4-t1a'></div>
+            <div class='sprite f4-t2 f4-t1a'></div>
+            <div class='sprite f4-t3 f4-t1b'></div>
+            <div class='sprite f4-t4 f4-t1b'></div>
+
+            <div class="f4-gun imgfix"><img src="f4-gun.png" alt=""></div>
+
+            <div class='cta'>
+                <div class='sprite cta1 ctaout'></div>
+                <div class='sprite cta2 ctahover'></div>
+                <div class='sprite cta-t1 ctaout'></div>
+                <div class='sprite cta-t2 ctahover'></div>
+                <div class='sprite cta-arrow1 cta-arrow ctaout'></div>
+                <div class='sprite cta-arrow2 cta-arrow ctahover'></div>
+            </div>
+        </div>
+        
+        <div id='border'></div>
+        <div id='clickthru'></div>
+        
+	</div>
+	<script>
+	var assets,manifest,scripts;
+
+    //--------------preload---------------------
+    
+    function preloadfiles(){
+        assets = new createjs.LoadQueue(false);
+        manifest=[
+            {src: 'f1-mag1.png'},
+            {src: 'f1-mag2.png'},
+            {src: 'f2-gun.png'},
+            {src: 'f3-gun.png'},
+            {src: 'f4-gun.png'},
+            {src: 'f4-header.png'},
+            {src: 'f4-footer.png'},
+            {src: 'f4-x.png'},
+            {src: 'sprite.png'},
+
+            {src: 'blue-arrow-left.png'},
+            {src: 'blue-arrow-right.png'},
+            {src: 'black-arrow-left.png'},
+            {src: 'black-arrow-right.png'},
+
+            {src: 'blue-bg.jpg'},
+            {src: 'white-bg.jpg'}
+        ];
+        if(scripts) manifest.push({src:scripts}); 
+        assets.loadManifest(manifest);
+        assets.on('complete',function(){
+            if(scripts){
+                var js = document.createElement('script');
+                js.src = scripts;
+            }
+            startAnim();
+        });
+
+    }
+    window.onload = preloadfiles();
+    //--------------animations---------------------
+    var tl = gsap.timeline();
+    var xColumns = 13; // Number of Columns of the X's in background
+    var xGaps = 23.5; // Width Gap of the X's in background
+    function startAnim() {
+        //--------------- SET -----------------
+        gsap.set('#container', {display: 'block'});
+        gsap.set('.imgfix', {transformPerspective: 100});
+        gsap.set('.f4-gun', {transformOrigin: '150px 250px', willChange: 'transform'});
+        //------------ ADD EVENT --------------
+        addEvent();
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1')
+            .from('.f1-t1a', {duration: 1.6, y: -600, ease: 'power3.inOut'}, "Scene1-=.5")
+            .from('.mags', {duration: 1.6, stagger: .2, y: 600, ease: 'power3.inOut'}, "Scene1+=.5")
+            .from('.f1-t1b', {duration: .1, stagger: .2, opacity: 0, ease: 'power1.inOut'}, "Scene1+=1.4")
+            .add(function(){animateArrows(1)}, 'Scene1+=2')
+
+            .add('Scene2', 'Scene1+=3.5')
+            .to('.f1-t1a', {duration: .6, y: -600, ease: 'power3.inOut'}, "Scene2")
+            .to('.mags', {duration: .6, y: 600, ease: 'power3.inOut'}, "Scene2")
+            .to('.f1-t1b', {duration: .1, opacity: 0, ease: 'power1.inOut'}, "Scene2+=.2")
+            .from('.f2-bg', {duration: .8, opacity: 0, ease: 'power1.out'}, 'Scene2+=.1')
+            .from('.f2-t1a', {duration: 1.6, y: -600, ease: 'power3.inOut'}, "Scene2+=.1")
+            .from('.f2-gun', {duration: 1.6, y: 600, ease: 'power3.inOut'}, "Scene2+=.5")
+            .add(function(){animateArrows(1)}, 'Scene2+=2.2')
+
+            .add('Scene3', 'Scene2+=3.5')
+            .to('.f2-t1a', {duration: .6, y: -600, ease: 'power3.inOut'}, "Scene3")
+            .to('.f2-gun', {duration: .6, y: 600, ease: 'power3.inOut'}, "Scene3")
+            .from('.f3-bg', {duration: .8, opacity: 0, ease: 'power1.out'}, 'Scene3+=.1')
+            .from('.f3-t1a', {duration: 1.6, y: 600, ease: 'power3.inOut'}, "Scene3+=.1")
+            .from('.f3-gun', {duration: 1.6, y: -600, ease: 'power3.inOut'}, "Scene3+=.5")
+            .add(function(){animateArrows(1)}, 'Scene3+=2.2')
+
+            .add('Scene4', 'Scene3+=3.5')
+            .to('.f3-t1a', {duration: .6, y: 600, ease: 'power3.inOut'}, "Scene4")
+            .to('.f3-gun', {duration: .6, y: -600, ease: 'power3.inOut'}, "Scene4")
+            .add(xFnc, 'Scene4')
+            .add(animateX, 'Scene4')
+            .from('.f4-bg', {duration: .8, opacity: 0, ease: 'power1.out'}, 'Scene4+=.1')
+            .from(['.f4-header','.f4-logo','.f4-name'], {duration: 1.6, y: -600, ease: 'power3.inOut'}, "Scene4+=.2")
+            .from('.f4-t1a', {duration: 1, y: 20, opacity: 0, ease: 'power2.out'}, "Scene4+=1.4")
+            .from('.f4-gun', {duration: .3, scale: 4, opacity: 0, ease: 'power3.inOut'}, "Scene4+=1.6")
+            .from('.f4-t1b', {duration: 1, y: 20, opacity: 0, ease: 'power2.out'}, "Scene4+=2.2")
+            .from('.f4-footer', {duration: 1.6, y: 600, ease: 'power3.inOut'}, "Scene4+=1.6")
+            .from('.f4-border', {duration: .4, scale: 0, ease: 'back.out(1.2)'},'Scene4+=2.8')
+            .from('.f4-code', {duration: .01, opacity: 0, yoyo: true, repeat: 3, repeatDelay: .025, ease: 'power1.out'},'Scene4+=3.3')
+            .to('.f4-code', {duration: .01, opacity: 1, yoyo: true, repeat: 4, repeatDelay: .025, ease: 'power1.out'},'Scene4+=3.6')
+            .from('.cta', {duration: .8, opacity: 0, ease: 'power1.out'}, 'Scene4+=3.8')
+            .add(function(){animateArrows(1)}, 'Scene4+=5')
+            .add(hoverFunction)
+        //-------------------------------------
+    };
+    function animateArrows(e){
+        gsap.set(['#left-arrow1', '#right-arrow1'], {x: 0})
+        gsap.set('#left-arrow2', {x: -32})
+        gsap.set('#right-arrow2', {x: 32})
+        var tl = gsap.timeline({repeat: e, repeatDelay: .2});
+        tl
+            .add('animate')
+            .to('#left-arrow1', {duration: .3, x: 32, ease: 'power1.inOut'},'animate')
+            .to('#left-arrow2', {duration: .3, x: 0, ease: 'power1.inOut'},'animate')
+            .to('#right-arrow1', {duration: .3, x: -32, ease: 'power1.inOut'},'animate')
+            .to('#right-arrow2', {duration: .3, x: 0, ease: 'power1.inOut'},'animate')
+        return tl;
+    }
+
+        // CREATE AND POSITION THE OTHER X's
+    function xFnc() {
+        var img = new Image();
+        img.src = 'f4-x.png';
+        img.id = 'x-img';
+        $('.f4-x').append(img)
+        for (let i = 0; i < (xColumns-1); i++) {
+            $('#x-img').clone().appendTo('.f4-x');
+        }
+        for (let i = 0; i < xColumns; i++) {
+            for (let b = 1; b < 6; b++) {
+                gsap.set($('.f4-x' + b)[0].children[i], {x: (i * xGaps)})
+            }
+        }
+    }
+    function animateX() {
+        var tl = gsap.timeline();
+        tl
+            // GROUP //
+            .add('init', '+=.3')
+            .from($('.f4-x1 img'), {duration: .4, stagger:  .05, opacity: 0}, 'init')
+            .from($('.f4-x2 img'), {duration: .4, stagger: -.05, opacity: 0}, 'init')
+            .from($('.f4-x3 img'), {duration: .4, stagger:  .05, opacity: 0}, 'init')
+            .from($('.f4-x4 img'), {duration: .4, stagger: -.05, opacity: 0}, 'init')
+            .from($('.f4-x5 img'), {duration: .4, stagger:  .05, opacity: 0}, 'init')
+
+            // INDIVIDUAL //
+            .add(function(){
+                for (let i = 0; i < 5; i++) {
+                    for (let b = 1; b < 6; b++) {
+                        gsap.to($('.f4-x' + b)[0].children[rr(0, xColumns)], {duration: 5, rotation: -360, ease: 'none'})
+                        gsap.to($('.f4-x' + b)[0].children[rr(0, xColumns)], {duration: 5, rotation:  360, ease: 'none'})
+                    }
+                }
+            })
+        return tl;
+    }
+    // RANDOMIZER ON WHICH X WILL ANIMATE //
+    function rr(min, max) {
+        if (max == null) { max = min; min = 0; }
+        if (min > max) { var tmp = min; min = max; max = tmp; }
+        return Math.floor(min + (max - min) * Math.random());
+    }
+
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+    };
+    
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough('clickTAG');
+        //--studio--> Enabler.exit('Background Exit'); 
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag);
+    }
+    
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+            gsap.to('.ctaout',{duration:.6,opacity:0});
+            gsap.to('.ctahover',{duration:.6,opacity:1 });
+            gsap.to('.cta-arrow',{duration:.6,x: 5});
+            gsap.to('.f4-gun',{duration:.6,scale: 1.04});
+            animateArrows(1);
+        });
+        $('#clickthru').on('mouseleave', function() {
+            gsap.to('.ctaout',{duration:.6,opacity:1});
+            gsap.to('.ctahover',{duration:.6,opacity:0});
+            gsap.to('.cta-arrow',{duration:.6,x: 0});
+            gsap.to('.f4-gun',{duration:.6,scale: 1.0});
+        });
+    }
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--1018V2-->

@@ -1,22 +1,31 @@
 <template>
-  <div class="about-section d-flex align-items-center justify-content-center">
-    <!-- Particle canvas -->
-    <canvas id="particles-canvas"></canvas>
-    <div class="container position-relative">
-      <div class="row">
-        <div class="col-md-5 text-white d-flex align-items-center justify-content-center">
-          <div class="am-text">
-            <h2 class="display-4">Hi&nbsp;There!</h2>
-            <p class="lead">I'm&nbsp;<span class="text-black">Alvin</span>.</p>
-            <p>I&nbsp;am&nbsp;a&nbsp;<span class="text-black">Rich&nbsp;Media&nbsp;Developer</span>.</p>
-            <!-- Larger Button -->
-            <div class="text-center text-md-start">
-              <a href="#work" class="btn btn-custom mt-3">View My Work</a>
-            </div>
+  <div class="about-me container py-5 text-center">
+    <div class="mb-5" data-aos="fade-up">
+      <h2 class="section-title mb-4">About Me</h2>
+      <p class="lead mx-auto" style="max-width: 800px;">My journey in technology began with a computer course, but I soon shifted to finance, intrigued by its complexities. While finance was interesting, I realized it wasn’t where my passion truly lay. I found myself drawn back to coding and development, which sparked a genuine excitement in me. The problem-solving and creativity involved in building with code felt incredibly fulfilling.</p>
+      <p class="lead mx-auto" style="max-width: 800px;">What I love most about development is the constant learning and the endless possibilities. I’m especially passionate about animating elements and creating interactive, visually engaging experiences. The blend of art and logic in coding is where I feel most at home.</p>
+      <p class="lead mx-auto" style="max-width: 800px;">I’m always eager to take on new challenges, learn, and improve my skills. Every project is an opportunity to grow and push my boundaries.</p>
+    </div>
+
+    <hr class="my-5" />
+
+    <div data-aos="fade-up">
+      <h2 class="section-title mb-5">Experience</h2>
+      <div class="timeline">
+        <div
+          v-for="(job, index) in reversedJobs"
+          :key="index"
+          class="timeline-item"
+          :class="getPositionClass(index)"
+          data-aos="fade-up"
+          :data-aos-delay="index * 150"
+        >
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="mb-1">{{ job.title }}</h4>
+            <h6 class="mb-0">{{ job.company }}</h6>
+            <small>{{ job.dates }}</small>
           </div>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center">
-          <img src="../assets/profile.png" alt="Profile Image" class="img-fluid profile-image">
         </div>
       </div>
     </div>
@@ -24,243 +33,170 @@
 </template>
 
 <script>
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default {
   name: 'AboutMe',
-  mounted() {
-    this.initParticles();
+  data() {
+    return {
+      jobs: [
+        { title: 'Production Lead', company: 'Candy Digital', dates: 'June 2023 - Present' },
+        { title: 'Senior Rich Media Developer', company: 'Candy Digital', dates: 'August 2017 - June 2023' },
+        { title: 'Junior Rich Media Developer', company: 'Candy Digital', dates: 'February 2016 - August 2017' },
+        { title: 'Flash Developer', company: 'Wideout Workforces Inc.', dates: 'February 2014 - January 2016' }
+      ]
+    };
+  },
+  computed: {
+    reversedJobs() {
+      return this.jobs.slice().reverse();
+    }
   },
   methods: {
-    initParticles() {
-      const canvas = document.querySelector('#particles-canvas');
-      const ctx = canvas.getContext('2d');
-
-      canvas.width = window.innerWidth * window.devicePixelRatio;
-      canvas.height = window.innerHeight * window.devicePixelRatio;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
-
-      class Particle {
-        constructor(x, y, effect) {
-          this.originX = x;
-          this.originY = y;
-          this.effect = effect;
-          this.x = Math.floor(x);
-          this.y = Math.floor(y);
-          this.ctx = this.effect.ctx;
-          this.ctx.fillStyle = "rgba(32, 31, 90, .2)";
-          this.vx = 0;
-          this.vy = 0;
-          this.ease = 0.2;
-          this.friction = 0.95;
-          this.dx = 0;
-          this.dy = 0;
-          this.distance = 0;
-          this.force = 0;
-          this.angle = 0;
-          this.size = Math.floor(Math.random() * 3);
-          this.alpha = .5;
-          this.draw();
-        }
-
-        draw() {
-          this.ctx.beginPath();
-          // this.ctx.fillRect(this.x, this.y, this.size, this.size)
-          this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); // Draw circle
-          this.ctx.fill();
-        }
-
-        update() {
-          this.dx = this.effect.mouse.x - this.x;
-          this.dy = this.effect.mouse.y - this.y;
-          this.distance = this.dx * this.dx + this.dy * this.dy;
-          this.force = -this.effect.mouse.radius / this.distance * 8;
-
-          if (this.distance < this.effect.mouse.radius) {
-            this.angle = Math.atan2(this.dy, this.dx);
-            this.vx += this.force * Math.cos(this.angle);
-            this.vy += this.force * Math.sin(this.angle);
-          }
-
-          this.x += (this.vx *= this.friction) + (this.originX - this.x) * this.ease;
-          this.y += (this.vy *= this.friction) + (this.originY - this.y) * this.ease;
-          this.draw();
-        }
+    getPositionClass(index) {
+      if (index % 2 === 0) {
+        // Job 1 & 3 (even indexes after reverse) — left side, dot right
+        return 'left dot-right';
+      } else {
+        // Job 2 & 4 (odd indexes) — right side, dot left
+        return 'right dot-left';
       }
-
-      class Effect {
-        constructor(width, height, context) {
-          this.width = width;
-          this.height = height;
-          this.ctx = context;
-          this.particlesArray = [];
-          this.gap = 20;
-          this.mouse = {
-            radius: 3000,
-            x: 0,
-            y: 0
-          };
-          window.addEventListener('mousemove', e => {
-            this.mouse.x = e.clientX * window.devicePixelRatio;
-            this.mouse.y = e.pageY * window.devicePixelRatio;
-          });
-
-          window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth * window.devicePixelRatio;
-            canvas.height = window.innerHeight * window.devicePixelRatio;
-            this.width = canvas.width;
-            this.height = canvas.height;
-            canvas.style.width = `${window.innerWidth}px`;
-            canvas.style.height = `${window.innerHeight}px`;
-
-            this.particlesArray = [];
-            this.init();
-          });
-          this.init();
-        }
-
-        init() {
-          for (let x = 0; x < this.width; x += this.gap) {
-            for (let y = 0; y < this.height; y += this.gap) {
-              this.particlesArray.push(new Particle(x, y, this));
-            }
-          }
-        }
-
-        update() {
-          this.ctx.clearRect(0, 0, this.width, this.height);
-          for (let i = 0; i < this.particlesArray.length; i++) {
-            this.particlesArray[i].update();
-          }
-        }
-      }
-
-      let effect = new Effect(canvas.width, canvas.height, ctx);
-      function animate() {
-        effect.update();
-        requestAnimationFrame(animate);
-      }
-      animate();
     }
+  },
+  mounted() {
+    AOS.init({ disable: true, once: true, duration: 800 });
   }
 };
 </script>
 
 <style scoped>
-.about-section {
-  height: 100vh; /* Full height of the viewport */
+.about-me {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem 0;
   width: 100%;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #343a40;
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative; /* Ensure container is positioned correctly */
+  margin-bottom: 3rem;
+  color: #000;
 }
 
-.container {
-  padding: 2rem;
-  position: relative; /* Ensure container is above the canvas */
-  z-index: 1; /* Ensure container is above the canvas */
+/* Dot style */
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: #343a40;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #343a40;
+  position: absolute;
 }
 
-.profile-image {
-  max-width: 100%; /* Ensure the image scales with the container width */
-  height: auto; /* Maintain aspect ratio */
+/* Content box */
+.timeline-content {
+  background: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  max-width: 350px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: #000;
 }
 
-canvas {
-  position: absolute; /* Position the canvas behind content */
-  top: 0;
+/* Left side layout (Job 1 & 3) */
+.timeline-item.left {
+  justify-content: flex-end;
+  text-align: right;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Ensure canvas is behind other content */
-  background-color: transparent; /* Ensure canvas background is transparent */
 }
 
-.am-text {
-  line-height: 2.5em;
+.timeline-item.left .timeline-dot {
+  right: -10px;
+  left: auto;
 }
 
-.text-black {
-  padding: 1rem; /* Adjust padding for better spacing */
+/* Right side layout (Job 2 & 4) */
+.timeline-item.right {
+  justify-content: flex-start;
+  text-align: left;
+  left: 50%;
 }
 
-h2.display-4 {
-  font-size: 4.5rem; /* Adjust size for responsiveness */
-  font-weight: 800;
+.timeline-item.right .timeline-dot {
+  left: -10px;
+  right: auto;
 }
 
-p.lead {
-  font-size: 4.5rem; /* Adjust size for responsiveness */
-  font-weight: 800;
+/* Dot on right (for jobs 1 & 3) */
+.timeline-item.dot-right .timeline-dot {
+  order: 2;
+  margin-left: 1rem;
 }
 
-p {
-  font-size: 1.5rem; /* Adjust size for responsiveness */
-  font-weight: 800;
+/* Dot on left (for jobs 2 & 4) */
+.timeline-item.dot-left .timeline-dot {
+  order: 1;
+  margin-right: 1rem;
 }
 
-p.text-white {
-  font-size: 1.5rem; /* Ensure consistency */
-  font-weight: 800;
-  color: #ffffff; /* Ensure the text is white */
+/* Divider line between sections */
+hr {
+  border-top: 2px solid #343a40;
+  opacity: 0.4;
 }
 
-.btn-custom {
-  background-color: #333333; /* Dark color for contrast */
-  color: #ffffff; /* White text */
-  border: none;
-  font-size: 1rem; /* Adjust font size */
-  padding: 0.75rem 1.5rem; /* Adjust padding for better click area */
-  border-radius: 0.5rem; /* Rounded corners */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  font-weight: 600;
-}
-
-.btn-custom:hover {
-  background-color: #ffffff; /* White background when hovered */
-  color: #333333; /* Dark text when hovered */
-}
-
-@media (max-width: 992px) {
-  .am-text {
-    line-height: 2em;
-  }
-
-  h2.display-4 {
-    font-size: 3rem; /* Adjust font size for smaller screens */
-  }
-
-  p.lead {
-    font-size: 3rem; /* Adjust font size for smaller screens */
-  }
-
-  p {
-    font-size: 1rem; /* Adjust font size for smaller screens */
-  }
-}
-
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  h2.display-4 {
-    font-size: 3.5rem; /* Adjust font size for smaller screens */
-    text-align: center;
+  .timeline::before {
+    left: 8px;
+    transform: none;
+    width: 3px;
   }
 
-  p.lead {
-    font-size: 3.5rem; /* Adjust font size for smaller screens */
+  .timeline-item {
+    width: 100%;
+    flex-direction: column;
     text-align: center;
+    left: 0 !important;
   }
 
-  p {
-    font-size: 1.2rem; /* Adjust font size for smaller screens */
-    text-align: center;
+  .timeline-dot {
+    margin: 1rem 0;
   }
 
-  .btn-custom {
+  .timeline-content {
     text-align: center;
-  }
-
-  .profile-image {
-    padding-top: 1rem;
   }
 }
+
 </style>

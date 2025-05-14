@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset='UTF-8'>
+	<title>Boost_Mobile</title>
+	<meta name='ad.size' content='width=300,height=600'> 
+	<link rel='stylesheet' href='style.css'>
+	<script> var clickTag = 'https://www.google.com'; </script>
+    <script src='https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src='https://s0.2mdn.net/ads/studio/cached_libs/preloadjs_1.0.0_min.js'></script>
+</head>
+<body>
+	<div id='container'>
+		<div class='bg9 imgfix'> <img src='bg3.png' alt='Background'> </div>
+		<div class='sprite text4-3 t4-2'></div> 
+		
+		<div class='bg8 imgfix'> </div>
+		<div class='bg7 imgfix'> </div>
+		
+		<div class='bg6 imgfix'> <img src='bg4.png' alt='Background'> </div>
+        <div class='sprite text4-4 t4-2'></div> 
+        <div class='sprite text4-5 t4-2'></div> 
+        
+		<div class='bg5 imgfix'> <img src='bg1.png' alt='Background'> </div>
+		<div class='bg4 imgfix bg'> <img src='bg3.png' alt='Background'> </div>
+		<div class='bg3 imgfix bg'> <img src='bg1.png' alt='Background'> </div>
+
+		<div class='sprite text1-2'></div>  
+		
+        <div class='bg2 imgfix bg'> <img src='bg2.png' alt='Background'> </div>
+        <div class='bg1 imgfix bg'> <img src='bg1.png' alt='Background'> </div>
+
+        <div class='sprite text1-1'></div>  
+
+        <div class='sprite text2-1 t2'></div> 
+        <div class='sprite text2-2 t2'></div> 
+        
+        <div class="num-holder">
+            <div class='sprite text3-dollar t3'></div>  
+            <div class='sprite text3-four t3'></div>  
+            <div class='sprite text3-five1 t3'></div>  
+            <div class='sprite text3-month t3'></div>  
+
+            <div class='sprite text3-zero'></div>  
+            <div class='sprite text3-three'></div>  
+            <div class='sprite text3-five2'></div>
+            <div class='sprite text3-2'></div>  
+        </div>  
+        
+        <div class="text3-1-cont">
+            <div class='sprite text3-1'></div>  
+        </div>
+        
+        <div class='sprite text4-1 t4'></div> 
+        <div class='sprite text4-2 t4'></div> 
+
+        <div class="prod t5 imgfix"><img src="prod.png" alt=""></div>
+        <div class='sprite text5-1 t5'></div> 
+        <div class='sprite text5-2 t5'></div> 
+        <div class='sprite text5-3 t5'></div> 
+        <div class='sprite text5-4 t5'></div> 
+        <div class='sprite text5-5 t5'></div> 
+        <div class='sprite text5-6 t5'></div> 
+
+        <div id="footer">
+            <div class='sprite logo'></div>
+            <div id="cta">
+                <div id="ctaout">
+                    <div class='sprite cta-text1'></div> 
+                </div>  
+                <div id="ctain">
+                    <div class='sprite cta-text2'></div> 
+                </div>  
+            </div>
+        </div>
+        
+        <div id='border'></div>
+        <div id='clickthru'></div>
+        
+	</div>
+	<script>
+	var assets,manifest,scripts;
+    //platforms = Standard / Adgear / Adwords / Sizmek = Standard / Studio
+    var platform = 'Standard';
+    switch(platform){
+        case 'Studio':
+            scripts = 'https://s0.2mdn.net/ads/studio/Enabler.js';
+        break;
+        case 'Adgear':
+            scripts = 'https://tpc.googlesyndication.com/pagead/gadgets/html5/api/exitapi.js';
+        break;
+        case 'Adwords':
+            scripts = 'https://tpc.googlesyndication.com/pagead/gadgets/html5/api/exitapi.js';
+        break;
+        default:break;
+    }
+    //--------------preload---------------------
+    
+    function preloadfiles(){
+        assets = new createjs.LoadQueue(false);
+        manifest=[
+            {src: 'sprite.png'},
+            {src: 'bg1.png'},
+            {src: 'bg2.png'},
+            {src: 'bg3.png'},
+            {src: 'bg4.png'},
+            {src: 'prod.png'}
+        ];
+        if(scripts) manifest.push({src:scripts}); 
+        assets.loadManifest(manifest);
+        assets.on('complete',function(){
+            if(scripts){
+                var js = document.createElement('script');
+                js.src = scripts;
+            }
+            startAnim();
+        });
+
+    }
+    window.onload = preloadfiles();
+    //--------------animations---------------------
+    var tl = gsap.timeline({default: {duration: 1.0}});
+    function startAnim() {
+        //--------------- SET -----------------
+        gsap.set('#container', {display: 'block'});
+        gsap.set('.imgfix', {rotation: 0.001, willChange: 'transform'});
+        gsap.set('.sprite', {rotation: 0.001, force3D: true, willChange: 'transform'});
+        gsap.set('#ctaout', {transformOrigin: "50% 50% -12px",}) //CTA height ÷ 2
+        gsap.set("#ctain",  {transformOrigin: "50% 50% -12px",rotationX:-90}) //CTA height ÷ 2
+        gsap.set(".text1-1",  {scale: .5, transformOrigin: '50% 50%'}) //CTA height ÷ 2
+        //------------ ADD EVENT --------------
+        addEvent();
+        hoverFunction();
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1')
+            .from('.text1-1', { duration: 1.5, scale: 1, yPercent: 30, ease: "power4.inOut"}, 'Scene1')
+            .to('.bg1', { duration: 2.0, y: 600, ease:'power4.inOut'}, '-=1.2')
+            .to('.bg2', { duration: 2.0, y: 600, ease:'power4.inOut'}, '-=1.9')
+            .to('.bg3', { duration: 2.0, y: 600, ease:'power4.inOut'}, '-=1.9')
+            .to('.bg4', { duration: 2.0, y: 351, ease:'power4.inOut'}, '-=1.9')
+            .from('.t2', { duration: 1.5, y: 600, stagger: .2, ease: "power4.inOut"}, '-=1.6')
+        
+            .add('Scene2','+=1.5')
+            .to(['.text1-2', '.text1-1'], { duration: 1.5, y: -600, ease: "power4.inOut"}, 'Scene2')
+            .to('.bg4', { duration: 1.5, y: 600, ease: "power4.inOut"}, 'Scene2')
+            .to('.text2-1', { duration: 1.5, y: -262, x: -5, ease: "power4.inOut"}, '-=1.2')
+            .to('.text2-2', { duration: 1.5, y: -262, x: -4, ease: "power4.inOut"}, '-=1.5')
+            .from('.num-holder', { duration: 1.5, y:  600, ease: "power4.inOut"}, '-=1.5')
+            .from('.text3-1-cont', { duration: 1.5, y: -600, ease: "power4.inOut"}, '-=1.5')
+     
+            .to('.text3-five1', {duration: 1.5, y: -600, overwrite: 'auto', ease: "power4.inOut"},'-=.4')
+            .from('.text3-zero', { duration: 1.5, y: 600, ease: "power4.inOut"}, '-=1.4')
+           
+            .to('.text3-zero,.text3-four', {duration: 1.5, y: -600, stagger: -.1, ease: "power4.inOut"},'-=.2')
+            .from('.text3-five2,.text3-three', { duration: 1.5, y: 600, stagger: -.1, ease: "power4.inOut"}, '-=1.4')
+            .from('.text3-2', { duration: 1.5, y: 600, ease: "power4.inOut"}, '-=1.4')
+
+            .add('Scene3','+=1.5')
+            .to('.text3-1-cont', { duration: 1.5, y: '-=600', stagger: .1, ease: "power4.inOut"}, 'Scene3')
+            .to(['.t2', '.num-holder'], { duration: 1.5, y: '600', stagger: -.1, ease: "power4.inOut"}, 'Scene3')
+            .to('.bg5', { duration: 2.0, y: 600, ease:'power4.inOut'}, 'Scene3')
+            .to('.bg6', { duration: 2.0, y: 298, ease:'power4.inOut'}, '-=1.9')
+            .from('.bg8', { duration: 2.0, y: -600, ease:'power4.inOut'}, '-=1.9')
+            .from('.bg7', { duration: 2.0, y: -600, ease:'power4.inOut'}, '-=1.9')
+            .from('.t4', { duration: 1.5, y: -600, stagger:  -.1, ease: "power4.inOut"}, '-=1.7')
+
+  
+            .add('Scene4','+=3')
+            .to('.bg6', { duration: 2.0, y: 600, ease:'power4.inOut'}, 'Scene4')
+            .to('.t4-2', { duration: 2.0, y: 600, stagger:  -.1, ease:'power4.inOut'}, 'Scene4')
+            .to('.t4', { duration: 1.5, y: -600, stagger: .1, ease: "power4.inOut"}, 'Scene4')
+            .to('.bg8', { duration: 2.0, height: '+=600', ease:'power4.inOut'}, '-=1.9')
+            .to('.bg7', { duration: 2.0, y: -600, ease:'power4.inOut'}, '-=1.9')
+            
+            .from('.t5', { duration: 1.5, y:  600, stagger: .1, ease: "power4.inOut"}, '-=1.7')
+
+        //-------------------------------------
+    };
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+    };
+    
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough('clickTAG');
+        //--studio--> Enabler.exit('Background Exit'); 
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag);
+    }
+    
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+            gsap.to('#ctaout', 	.4, {rotationX: 90, ease: Power4.easeOut});
+            gsap.to('#ctain', 	.4, {rotationX: 0,  ease: Power4.easeOut});
+        });
+        $('#clickthru').on('mouseleave', function() {
+            gsap.to('#ctaout', 	.4, {rotationX: 0,   ease: Power4.easeOut});
+            gsap.to('#ctain', 	.5, {rotationX: -90, ease: Power4.easeOut});
+        });
+    }
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--1018V2-->

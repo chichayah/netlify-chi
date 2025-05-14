@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SEI_Ask_the_Right_Questions</title>
+	<meta name="ad.size" content="width=300,height=600"> 
+	<link rel="stylesheet" href="style.css">
+	<script>
+		var clickTag = "https://seic.com/solutions/enterprise-wealth-management-services-private-banking-organizations/ask-the-right-questions?utm_source=Simplifi&utm_medium=Display&utm_campaign=PB-Questions-2018&utm_content=Box_Attract-Talent";
+	</script>
+	<!-- GSAP -->
+	<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.20.0_d360d9a082ccc13b1a1a9b153f86b378_min.js"></script>
+    <!-- STANDARD -->
+	<script src="cb_standard.js"></script>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</head>
+<body>
+	<div id="container">
+		<!-- ~~~~~~~~~~~~~~ INSERT DIVS ~~~~~~~~~~~~~~ -->
+		<div class="bg"></div>
+		
+		<div class="bBox"></div>
+		<div class="seq_mBox"></div>
+		<div class="seq_char"></div>
+		<div class="baloonMask"><div class="baloon"></div></div>
+		
+		<div class="line"></div>
+		<div class="sprite topline"></div>
+		<div class="circle"></div>
+		
+		<div class="seq_fBox"></div>
+
+        <div class='sprite logo'></div>
+        <div class='sprite text1'></div>
+        <div class='sprite text2'></div>
+        <div class='sprite text3'></div>
+        <div class='sprite text4'></div>
+        <div class='sprite text5'></div>
+        <div class='sprite text6'></div>
+        <div class='sprite textline'></div>
+        <div id="cta">
+            <div class='sprite ctatext'></div>
+            <div class='sprite ctaarrow'></div>
+        </div>
+		<!-- ~~~~~~~~~~~~~~ INSERT DIVS ~~~~~~~~~~~~~~ -->
+	</div>
+	<script>
+		var tl;
+		function initAd() {
+			//--------- PRE-LOAD IMAGE ------------
+			startPreload('sprite.png', 'seq_char.png', 'bBox.png', 'seq_fBox.png', 'seq_mBox.png', 'line.png', 'baloon.png', 'circle.png', startAnim);
+			//-------------------------------------
+			function startAnim() {
+				tl = new TimelineMax();
+				//--------------- SET -----------------
+				TweenMax.set('#container', {display: 'block'});
+				TweenMax.set(['img','.sprite','.bg'], {rotation: 0.001, force3D: true})
+				TweenMax.set('.bg', {transformOrigin: '50% 50%'})
+				TweenMax.set('.baloon', {transformOrigin: '32px 2px'})
+				//------------ ADD EVENT --------------
+				addEvent();
+				//---------- ADD ANIMATION ------------
+				tl
+                    .add('seq')
+                    .add(function(){
+						TweenMax.to('.seq_char', 1.0,{backgroundPosition:'-1500px 0px', ease:SteppedEase.config(5)})
+					}, 'seq')
+                    .add(function(){
+						TweenMax.to('.seq_char', 8.0,{backgroundPosition:'-19200px 0px', ease:SteppedEase.config(59)})
+					}, 'seq+=3')
+                    .add(function(){
+						TweenMax.to('.seq_fBox', 1.2,{backgroundPosition:'-3900px 0px', ease:SteppedEase.config(13)})
+					}, 'seq')
+                    .add(function(){
+						TweenMax.to('.seq_mBox', 1.2,{backgroundPosition:'-4500px 0px', ease:SteppedEase.config(15)})
+					}, 'seq')
+                    .add(baloonAnim, 'seq')
+                    .from('.text1', .5, {opacity: 0}, 'seq+=1') 
+                    .from('.text2', .5, {opacity: 0}, 'seq+=2.5')
+                    .to(['.text1', '.text2'], 0.5, {opacity: 0}, 'seq+=5.5')
+                    .from('.text3', 0.5, {opacity: 0},'seq+=5.9')
+                    
+                    .to('.text3', 0.5, {opacity: 0}, 'seq+=9.9')
+                    .from('.text4', 0.5, {opacity: 0},'seq+=10.3')
+                    .from('.textline', 0.5, {opacity: 0},'seq+=10.3')
+                    .from('.text5', 0.5, {opacity: 0},'seq+=10.3')
+                    .from('.text6', 0.5, {opacity: 0},'seq+=10.3')
+                    .from('#cta', 0.5, {opacity: 0},'seq+=11.3')
+
+					.add(endFrame);
+				//-------------------------------------
+			};
+            
+            function baloonAnim() {
+                var tlLine = new TimelineMax();
+                var tlBaloon = new TimelineMax();
+                var tlBaloonRotate = new TimelineMax(); //{repeat: 12, yoyo: true}
+                    
+				    tlLine
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut}, '+=2.2')
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+                        .to('.line', .6,{height: '-=22', ease: Power1.easeInOut})
+                        .to('.line', .2,{height: '+=1', ease: Power1.easeInOut})
+
+
+                    tlBaloon
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut}, '+=2.2')
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                        .to('.baloon', .6,{y: '-=22', ease: Power1.easeInOut})
+                        .to('.baloon', .2,{y: '+=1', ease: Power1.easeInOut})
+                
+                    tlBaloonRotate
+                        .fromTo('.baloon', .8, {rotation: -2, ease: Power1.easeInOut, repeat: 15, yoyo: true}, {rotation: 2, ease: Power1.easeInOut, repeat: 15, yoyo: true})
+                        .to('.baloon', .8, {rotation: 0, ease: Power1.easeInOut})
+
+                return tlLine;
+                return tlBaloon;
+                return tlBaloonRotate;
+
+            }
+			
+			function addEvent() {
+				//--------------- SET -----------------
+				//To add:		_(object).on(events,  function);
+				//To remove:	_(object).off(events, function);
+				//-------------------------------------
+				_('#container').on('click', exit);
+			};
+			
+			function exit() {
+				window.open(clickTag); /*Standard Exit*/
+				console.log('Exit')
+			}
+			
+			function endFrame() {
+				_('#container').on('mouseenter', mouseOver);
+				_('#container').on('mouseleave', mouseOut);
+			}
+
+			function mouseOver() {
+				TweenMax.to('#cta', 0.2, {backgroundColor: '#1a3c6b'})
+				TweenMax.to('.ctaarrow', 0.2, {x: 3})
+			}
+            
+            function mouseOut() {
+				TweenMax.to('#cta', 0.2, {backgroundColor: '#0b6d65'})
+                TweenMax.to('.ctaarrow', 0.2, {x: 0})
+			}
+		};
+	</script>
+</body>
+</html>

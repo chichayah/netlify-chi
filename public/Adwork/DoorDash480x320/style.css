@@ -1,0 +1,126 @@
+body {margin: 0px;}
+
+#container {
+	background-color: #f7e2df;
+	cursor: pointer;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	pointer-events: none;
+    width: 480px;
+	height: 320px;
+}
+
+#container * {
+	position: absolute;
+}
+
+
+#border{
+    border: 1px solid gray;  
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#clickthru{
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+}
+
+/*-------------- SPRITE -------------*/
+.sprite { background: url('sprite.png') no-repeat top left; width: 214px; height: 314px; background-size: 214px 314px;  } 
+.sprite.ctabg1 { background-position: 0 0; width: 144px; height: 18px; } 
+.sprite.ctabg2 { background-position: 0 -23px; width: 144px; height: 18px; } 
+.sprite.ctatext1 { background-position: 0 -46px; width: 100px; height: 10px; } 
+.sprite.ctatext2 { background-position: 0 -61px; width: 100px; height: 10px; } 
+.sprite.logo { background-position: 0 -76px; width: 196px; height: 24px; } 
+.sprite.legal { background-position: 0 -105px; width: 208px; height: 9px; } 
+.sprite.text2 { background-position: 0 -119px; width: 62px; height: 24px; } 
+.sprite.text3 { background-position: 0 -148px; width: 214px; height: 100px; } 
+.sprite.text1 { background-position: 0 -253px; width: 136px; height: 61px; } 
+
+/*--------- SPRITE POSITION ---------*/
+.ctatext2, .ctabg2 {opacity: 0;}
+.ctatext1,.ctatext2 {bottom: 104px;right: 71px;}
+.ctabg1,.ctabg2 {bottom: 100px;right: 54px;}
+.ctatext2 {opacity:0; }
+.logo {bottom: 56px;right: 28px;}
+.legal {bottom: 16px;left: 136px;}
+.text1 {top: 85px;right: 70px;}
+.text2 {top: 114px;right: 103px;}
+.text3 {top: 121px;right: 16px;}
+
+/*-------- IMAGES | POSITION --------*/
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bg {
+	width: 100%;
+	height: 100%;
+}
+
+.biker {
+    width: 165px;
+    height: 128px;
+    bottom: -5px;
+    left: 480px;
+}
+
+.tires {
+    width: 64px;
+    height: 64px;
+    top: 64px;
+    left: 6px;
+}
+
+.tire2 {
+    left: 102px;
+}
+
+.biker2 {
+    width: 165px;
+    height: 128px;
+    bottom: 89px;
+    left: 480px;
+}
+
+.food1 {width: 295px;height: 135px;top: 133px;left: -73px;}
+.food2 {width: 212px;height: 138px;top: 90px;left: 94px;}
+
+.cloud1 {width: 118px;height: 53px;top: 66px;left: -15px;}
+.cloud2 {width: 110px;height: 48px;top: 6px;left: 83px;}
+.cloud3 {width: 106px;height: 49px;top: 52px;left: 195px;}
+.cloud4 {width: 134px;height: 57px;top: 12px;left: 370px;}
+
+/*-------- SVG | SIZES & POSITION --------*/
+#headlineSVG {top: 101px;right: 14px;width: 216px;height: auto;}
+#ballSVG {top: 164px;left: 221px;width: 24px;height: auto;}
+#plantSVG1 {top: 235px;left: 15px;width: 20px;height: auto;}
+#plantSVG2 {top: 223px;left: 139px;width: 25px;height: auto;}
+#plantSVG3 {top: 216px;left: 185px;width: 21px;height: auto;}
+#yellowbutteflySVG {top: 47px;left: 217px;width: 34px;height: auto;}
+#redbutteflySVG {top: 57px;left: 425px;width: 48px;height: auto;}
+
+/*-------- SVG MORPH PATHS HIDDEN --------*/
+#plantSVG1 #plant1morph, #plantSVG1 #plant2morph, #plantSVG1 #plant3morph {
+    visibility:hidden;
+}
+#plantSVG2 #plant1morph, #plantSVG2 #plant2morph, #plantSVG2 #plant3morph {
+    visibility:hidden;
+}
+#plantSVG3 #plant1morph, #plantSVG3 #plant2morph, #plantSVG3 #plant3morph {
+    visibility:hidden;
+}
+#yellowbutteflySVG #rightwingmorph, #yellowbutteflySVG #leftwingmorph {
+    visibility:hidden;
+}
+#redbutteflySVG #rightwingmorph, #redbutteflySVG #leftwingmorph {
+    visibility:hidden;
+}
+
+

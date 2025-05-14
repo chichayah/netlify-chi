@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset='UTF-8'>
+	<title>Neuron Syndicate - Black Widow</title>
+	<meta name='ad.size' content='width=300,height=600'>
+    <link rel='stylesheet' href='style.css'>
+	<script> var clickTag = 'https://www.google.com'; </script>
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script> 
+    
+    <script src='https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src='https://s0.2mdn.net/ads/studio/cached_libs/preloadjs_1.0.0_min.js'></script>
+    <script src="MorphSVGPlugin.min.js"></script>
+</head>
+<body>
+	<div id='container'>
+        <div class='bg imgfix'>
+            <img src='images/bg.jpg' alt='Background'>
+        </div>
+        <div class="hour-left">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="150px" height="600px" viewBox="0 0 150 600" enable-background="new 0 0 150 600" xml:space="preserve">
+                <defs>
+                    <mask id="leftMask" x="0">
+                        <polygon id="leftpath3" fill="#FFFFFF" points="-112,600 -252,600 -146,306 -257,0 -112,0 -1,306 "/>
+                        <polygon id="leftpath2" fill="#FFFFFF" points="150,600 10,600 116,306 5,0 150,0 261,306 "/>
+                        <polygon id="leftpath1" fill="#FFFFFF" points="295,600 155,600 261,306 150,0 295,0 406,306 "/>
+                    </mask>
+
+                    <mask id="leftMaskCar" x="0">
+                        <polygon id="leftpath3" fill="#FFFFFF" points="-112,600 -252,600 -146,306 -257,0 -112,0 -1,306 "/>
+                        <polygon id="leftpath2" fill="#FFFFFF" points="150,600 10,600 116,306 5,0 150,0 261,306 "/>
+                        <polygon id="leftpath1" fill="#FFFFFF" points="295,600 155,600 261,306 150,0 295,0 406,306 "/>
+                    </mask>
+                </defs>
+
+            <image width="300" height="600" overflow="visible" xlink:href="images/hour-glass.png" mask="url(#leftMask)"></image>
+            <image width="300" height="600" overflow="visible" xlink:href="images/hour-glass.png" mask="url(#leftMaskCar)"></image>
+            </svg>
+        </div>
+
+        <div class="hour-right">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="150px" height="600px" viewBox="0 0 150 600" enable-background="new 0 0 150 600" xml:space="preserve">
+                <defs>
+                    <mask id="rightMask" x="0">
+                        <polygon id="rightpath3" fill="#FFFFFF" points="260,600 402,600 296,306 407,0 260,0 149,306 "/>
+                        <polygon id="rightpath2" fill="#FFFFFF" points="0,600 142,600 36,306 147,0 0,0 -111,306 "/>
+                        <polygon id="rightpath1" fill="#FFFFFF" points="-147,600 -5,600 -111,306 0,0 -147,0 -258,306 "/>
+                    </mask>
+
+                    <mask id="rightMaskCar" x="0">
+                        <polygon id="rightpath3" fill="#FFFFFF" points="260,600 402,600 296,306 407,0 260,0 149,306 "/>
+                        <polygon id="rightpath2" fill="#FFFFFF" points="0,600 142,600 36,306 147,0 0,0 -111,306 "/>
+                        <polygon id="rightpath1" fill="#FFFFFF" points="-147,600 -5,600 -111,306 0,0 -147,0 -258,306 "/>
+                    </mask>
+                </defs>
+            <image width="300" height="600" x="-150" overflow="visible" xlink:href="images/hour-glass.png" mask="url(#rightMask)"></image>
+            <image width="300" height="600" x="-150" overflow="visible" xlink:href="images/hour-glass.png" mask="url(#rightMaskCar)"></image>
+            </svg>
+        </div>
+        <div class='sprite headline imgfix'></div>
+
+        <div id="carousel-holder">
+            <div id="carousel1" class="carousel"> <img src="images/char1.png" alt=""></div>
+            <div id="carousel2" class="carousel"> <img src="images/char2.png" alt=""></div>
+            <div id="carousel3" class="carousel"> <img src="images/char3.png" alt=""></div>
+            <div id="carousel4" class="carousel"> <img src="images/char4.png" alt=""></div>
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class='legal'><img src='images/legal.png'></div>
+        <div class='sprite logo'></div>
+        <div class='sprite logo-prime imgfix'></div>
+
+        <div id='clickthru'></div>
+
+        <div id="btn-left"><img src="images/btn-left.png" alt=""></div>
+        <div id="btn-right"><img src="images/btn-right.png" alt=""></div>
+
+        <div class='replay imgfix'>
+            <img src='images/replay.png' alt='Background'>
+        </div>
+
+        <div id='cta'>
+            <div class='sprite cta'></div>
+            <div class='sprite cta-text1'></div>
+            <div class='sprite cta-text2'></div>
+        </div>  
+
+        <div class="video-bg"></div>
+
+        <video id="introVid" width="300" height="170" muted preload playsinline>
+          <source src="images/intro.mp4" type="video/mp4" >
+        </video>
+        
+        <video id="mainVid" width="300" height="170" preload playsinline>
+          <source id='mainVid-src' type="video/mp4" >
+        </video>
+
+        <div id='btn-play'><img src='images/play.png'></div>
+        <div id="btn-mute" class='vid-mute'></div>
+        <div id="btn-unmute" class='vid-unmute'></div>
+
+        <div class='top-bar imgfix'>
+            <img src='images/top-bar.png' alt='Background'>
+        </div>
+        <div class='bot-bar imgfix'>
+            <img src='images/bot-bar.png' alt='Background'>
+        </div>
+        
+        <div class='endframe ef imgfix'>
+
+        </div>
+        <div id='border'></div>
+
+    </div>
+
+        
+
+	<script>
+	var assets,manifest,scripts;
+    //--------------preload---------------------
+    
+    function preloadfiles(){
+        assets = new createjs.LoadQueue(false);
+        manifest=[
+            {src: 'images/top-bar.png'},
+            {src: 'images/bot-bar.png'},
+            {src: 'images/sprite.png'},
+            {src: 'images/bg.jpg'},
+            {src: 'images/btn-left.png'},
+            {src: 'images/btn-right.png'},
+            {src: 'images/char1.png'},
+            {src: 'images/char2.png'},
+            {src: 'images/char3.png'},
+            {src: 'images/char4.png'},
+            {src: 'images/hour-glass.png'},
+            {src: 'images/intro.mp4'},
+            {src: 'images/main.mp4'}
+        ];
+        if(scripts) manifest.push({src:scripts}); 
+        assets.loadManifest(manifest);
+        assets.on('complete',function(){
+            if(scripts){
+                var js = document.createElement('script');
+                js.src = scripts;
+            }
+            startAnim();
+        });
+
+    }
+    window.onload = preloadfiles();
+    //--------------animations---------------------
+    var introVid = document.querySelector('#introVid');
+    var mainVid = document.querySelector('#mainVid');
+    var ef = false;
+    var numberofObj = 4;
+    var currentObj;
+    var nextObj;
+    var prevObj;
+    var carouselSpeed = 1.1;
+    var carouselEasing = "elastic.inOut(1.2,5)";
+    var animating = false;
+    var replay = false;
+    
+    function startAnim() {
+        //--------------- SET -----------------
+        gsap.set('#container', {display: 'block'});
+        gsap.set('.imgfix', {force3D: true, willChange: 'transform', transformPerspective: 100});
+        gsap.set('svg', {force3D: true, transformPerspective: 100});
+        gsap.set('#carousel1', {x: 0, scale: 1})
+        gsap.set('.carousel', {transformOrigin: 'bottom center', force3D: true, willChange: 'transform', transformPerspective: 100});
+        gsap.set('#carousel2,#carousel3,#carousel3', {x: 500, scale: .7});
+        gsap.set('#carousel4', {x: -500, scale: .7});
+        gsap.set('.replay', { opacity:0, display:'none'});
+        gsap.set('#introVid', { display:'none'});
+       
+        //------------ ADD EVENT --------------
+        addEvent();
+        videoEvents();
+        introAnimation();
+        //---------- ADD ANIMATION ------------
+        
+             //---------------   
+
+        //-------------------------------------
+    };
+
+
+    function introAnimation() {
+        currentObj = 1;
+        var tl = gsap.timeline()
+        gsap.set('.top-bar,.bot-bar, #btn-play', { opacity:0});
+        gsap.set('.top-bar', { y: 99 });
+        gsap.set('.bot-bar', { y: -99 });
+        gsap.set('.video-bg', { scaleY: 0, opacity: 1 });
+        gsap.set('#introVid', { display:'none', opacity: 0});
+        gsap.set('#mainVid', { display:'none', opacity: 0});
+        gsap.set('.carousel', {transformOrigin: 'bottom center', force3D: true, willChange: 'transform', transformPerspective: 100})
+        gsap.set('#carousel1', {x: 0, scale: 1})
+        gsap.set('#carousel2,#carousel3', {x: 500, scale: .7})
+        gsap.set('#carousel4', {x: -500, scale: .7})
+        gsap.set('#leftMaskCar #leftpath1', {morphSVG: '#leftMaskCar #leftpath1', display: 'none'})
+        gsap.set('#rightMaskCar #rightpath1', {morphSVG: '#rightMaskCar #rightpath1', display: 'none'})
+        gsap.set('.replay', { rotation: 360, pointerEvents: 'none', display: 'none', opacity: 0})
+        
+        tl
+            .add('Scene1')
+            .from('.bg', {duration: .8, scale: 1.3, ease: 'power2.inOut'}, 'Scene1')
+            .from('#carousel1', {duration: .8, scale: 2, yPercent: 50, ease: 'power2.inOut'}, 'Scene1')
+
+            .fromTo('#leftMask #leftpath1', {morphSVG: '#leftMask #leftpath1'}, {morphSVG: "#leftMask #leftpath2", duration: 1.2, ease: 'power2.inOut'}, 'Scene1')
+            .fromTo('#rightMask #rightpath1', {morphSVG: '#rightMask #rightpath1'}, {morphSVG: "#rightMask #rightpath2", duration: 1.2, ease: 'power2.inOut'}, 'Scene1')
+
+            .to('.overlay', {duration: .35, opacity: 0, ease: 'power1.out'}, 'Scene1+=.1')
+            .from('.logo', {duration: 1, opacity: 0, ease: 'power1.out'},'Scene1+=.8')
+            .from('.headline', {duration: .8, yPercent: -100, ease: 'power3.out'}, 'Scene1+=1.2')
+            .from('.legal', {duration: .8, xPercent: -120, ease: 'power2.out'}, 'Scene1+=1.2')
+        
+            .from('#cta', {duration: .8, y: 5, opacity: 0, pointerEvents: 'none', ease: 'power2.inOut'}, 'Scene1+=1.6')
+            .from('.logo-prime', {duration: .8, y: 5, opacity: 0, pointerEvents: 'none', ease: 'power2.inOut'}, 'Scene1+=1.8')
+            .from('#btn-left', {duration: .8, x: 10, opacity: 0, pointerEvents: 'none', ease: 'power1.out'}, 'Scene1+=2.2')
+            .from(['#btn-right','#btn-right2'], {duration: .8, x: -10, opacity: 0, pointerEvents: 'none', ease: 'power1.out'}, 'Scene1+=2.2')
+            
+            .to('.video-bg', {duration: .8, scaleY: 1, ease: "power2.inOut"},'Scene1+=2.4')
+            .to('.top-bar',{duration: .8, opacity:1, y: 0, ease: "power2.inOut"},'Scene1+=2.4')
+            .to('.bot-bar',{duration: .8, opacity:1, y: 0, ease: "power2.inOut"},'Scene1+=2.4')
+
+            .add(function(){replay ? gsap.set('#mainVid', { display:'block', opacity: 1}) : gsap.set('#introVid', { display:'block', opacity: 1}) }, 'Scene1+=3.1')
+            .add(function(){replay ? mainVid.play() : introVid.play();}, 'Scene1+=3.1')
+            .to('#btn-mute',{duration: .8, opacity:1, ease: "power1.out"},'Scene1+=3.1')
+            .to('#btn-play',{duration:.8, opacity:1, ease: "power1.out", onComplete:function(){
+                gsap.set('#btn-play', {pointerEvents: "auto"})
+            }},'Scene1+=4.2')
+       
+            .add(hoverFunction)
+    }
+    function endAnimation(e) {
+        ef = true;
+        animating = true;
+        var tl = gsap.timeline();
+        tl
+            .set('#btn-mute', {display: 'block', opacity: 0})
+            .set('#btn-unmute', {display: 'none'})
+            .set('#btn-mute, #btn-unmute, #ctavid', { pointerEvents:'auto'})
+            .set('#btn-play', {display: 'none'})
+            .set('.replay', { rotation: 360, pointerEvents: 'none', display: 'none', opacity: 0})
+
+            .add('Scene1')
+            .add(function(){ e == 'main' ? gsap.to('#mainVid', {duration: .4, opacity: 0, display : 'none'}) : gsap.to('#introVid', {duration: .4, opacity: 0, display : 'none'}) },'Scene1')
+            .to('#introVid', {duration: .4, opacity: 0, display : 'none'},'Scene1')
+            .to('.top-bar', {duration: .4, y: 99, opacity: 0},'Scene1')
+            .to('.bot-bar', {duration: .4, y: -99, opacity: 0},'Scene1')
+            .to('.video-bg', {duration: .4, scaleY: 0},'Scene1')
+            .to('.replay', {duration: .8, rotation: 0, display: 'block', opacity: 1, pointerEvents: 'auto', transformOrigin: 'center center',ease: 'power1.out', onComplete: function(){animating = false}}, 'Scene1+=.4')
+            
+        return tl;
+    }
+
+
+    function setVideo(vid){
+        $('#mainVid-src').attr('src',Enabler.getUrl(vid))
+        mainVid.load();
+        if(!replay) mainVid.play();
+    }
+        
+    function videoEvents(){
+        introVid.addEventListener('ended', introVidEndHandler, false);
+        introVid.addEventListener('playing', introVidStartHandler, false);
+        
+        mainVid.addEventListener('ended', mainVidEndHandler, false);
+        mainVid.addEventListener('playing', mainVidStartHandler, false);
+    }
+    
+    function introVidStartHandler(){
+        var video = document.getElementById('introVid');
+        
+        video.ontimeupdate = function(){
+            if(video.currentTime >= 12.8) {
+                if(!ef) endAnimation('intro');
+            }
+        };
+    }
+    
+    function introVidEndHandler(e) {
+        
+    }
+    function mainVidStartHandler(){
+        var video = document.getElementById('mainVid');
+        video.ontimeupdate = function(){
+            if(video.currentTime >= 26) {
+                if(!ef) endAnimation('main');
+            }
+                
+        };
+    }
+    function mainVidEndHandler(e) {
+
+    }
+    
+    function playMainVideo(){
+        setVideo("images/main.mp4");
+        introVid.pause();
+        gsap.set('#introVid', {display: 'none'});
+        gsap.set('#mainVid', {display: 'block'});
+        gsap.set('#mainVid', {opacity: 1});
+        gsap.set('#btn-play', {display: 'none'});
+        gsap.set('#btn-mute', {display: 'block'});
+    }
+    function muteVideo() {
+        $('#mainVid').prop('muted', true);
+        gsap.set('#btn-mute',{display:'none'})
+        gsap.set('#btn-unmute',{display:'block'})
+    }
+    function unmuteVideo(){
+        // introAnimation();
+        replay = false;
+        setVideo('images/main.mp4');
+        $('#mainVid').prop('muted', false);
+        gsap.set('#btn-mute', {display: 'block'});
+        gsap.set('#btn-unmute', {display: 'none'});
+    }
+    function replayVideo(){
+        if(!animating) {
+            replay = true;
+            ef = false;
+            introAnimation();
+
+            setVideo('images/main.mp4');
+            
+            $('#mainVid').prop('muted', false);
+            gsap.set('#btn-mute', {display: 'block', opacity: 0});
+            gsap.set('#btn-unmute', {display: 'none'});
+            gsap.set('#btn-mute, #btn-unmute, #ctavid', { pointerEvents:'auto'});
+            gsap.set('#btn-play', {display: 'none'});
+            gsap.set('.replay', {display: 'none'});
+            gsap.set('#carousel1', {x: 0, scale: 1})
+            gsap.set('#carousel2,#carousel3', {x: 500, scale: .7})
+            gsap.set('#carousel4', {x: -500, scale: .7})
+            currentObj = 1;
+        } 
+    }
+
+    function animCarousel(direction){
+        if(!animating) {
+            animating = true;
+            if(direction == "left") {
+                currentObj--;
+                prevObj = currentObj - 1;
+                nextObj = currentObj + 1;
+
+                if(currentObj == 1){
+                    currentObj = 1;
+                    prevObj = numberofObj;
+                    nextObj = currentObj + 1;
+
+                } else if(currentObj < 1){
+                    currentObj = numberofObj;
+                    prevObj = numberofObj - 1;
+                    nextObj = 1;
+                }
+                var animLeft = gsap.timeline({onComplete: function(){animating = false;}})
+                    animLeft
+                        .to(['#carousel' + currentObj], {x: 0, scale: 1, duration: carouselSpeed, ease: carouselEasing},0)
+                        .to(['#carousel' + nextObj],  {x: 300, scale: .7, duration: carouselSpeed, ease: carouselEasing},0)
+                        .set(['#carousel' + prevObj],{x: -300, scale: .7, duration: carouselSpeed, ease: carouselEasing},0)
+                        .add(function(){bgSwap()}, 0)
+                
+            } else {
+                currentObj++;
+                prevObj = currentObj - 1;
+                nextObj = currentObj + 1;
+
+                if(currentObj == numberofObj){
+                    currentObj = numberofObj;
+                    prevObj = numberofObj - 1;
+                    nextObj = 1;
+
+                }else if(currentObj > numberofObj){
+                    currentObj = 1;
+                    prevObj = numberofObj;
+                    nextObj = currentObj + 1;
+                }  
+                var animRight = gsap.timeline({onComplete: function(){animating = false;}})
+                    animRight
+                        .to(['#carousel' + currentObj], {x: 0, scale: 1, duration: carouselSpeed, ease: carouselEasing},0)
+                        .to(['#carousel' + prevObj], {x: -300, scale: .7, duration: carouselSpeed, ease: carouselEasing},0)
+                        .set(['#carousel' + nextObj], {x: 300, scale: .7, duration: carouselSpeed, ease: carouselEasing},0)
+                        .add(function(){bgSwap()}, 0)
+            }
+        }
+    }
+
+    function bgSwap() {
+        var tl = gsap.timeline()
+        gsap.set('#leftMaskCar #leftpath1', {display: 'block'})
+        gsap.set('#rightMaskCar #rightpath1', {display: 'block'})
+        tl
+            .fromTo('#leftMask #leftpath1', {morphSVG: '#leftMask #leftpath2'}, {morphSVG: "#leftMask #leftpath3", duration: carouselSpeed, ease: carouselEasing},0)
+            .fromTo('#rightMask #rightpath1', {morphSVG: '#rightMask #rightpath2'}, {morphSVG: "#rightMask #rightpath3", duration: carouselSpeed, ease: carouselEasing},0)
+
+            .fromTo('#leftMaskCar #leftpath1', {morphSVG: '#leftMaskCar #leftpath1'}, {morphSVG: "#leftMaskCar #leftpath2", delay: .1, duration: carouselSpeed, ease: carouselEasing},0)
+            .fromTo('#rightMaskCar #rightpath1', {morphSVG: '#rightMaskCar #rightpath1'}, {morphSVG: "#rightMaskCar #rightpath2", delay: .1, duration: carouselSpeed, ease: carouselEasing},0)
+        return tl;
+    }
+
+    function addEvent() {
+        $('#btn-mute').on('click', muteVideo);
+        $('#btn-unmute').on('click', unmuteVideo);
+        $('.replay').on('click', replayVideo);
+        $('#btn-play').on('click', playMainVideo);
+        $('#clickthru').on('click', exit);
+        $('#cta').on('click', exit);
+        $('#btn-left').on('click', btnFunction);
+        $('#btn-right').on('click', btnFunction);
+    };
+    
+    function btnFunction(e) {
+        var currentTarget = this.id.substr(this.id.length - 1);
+
+        switch(this.id) {
+            case 'btn-left':  
+                 animCarousel("left");
+            break;
+            case 'btn-right': 
+                 animCarousel("right");
+            break;
+            default:
+                
+            break;
+        }
+    }
+
+    function hoverFunction() {
+        $('#cta').on('mouseenter', function() {
+            gsap.to('.cta-text1',{duration:.6,opacity:0});
+            gsap.to('.cta-text2',{duration:.6,opacity:1 });
+        });
+        $('#cta').on('mouseleave', function() {
+            gsap.to('.cta-text1',{duration:.6,opacity:1});
+            gsap.to('.cta-text2',{duration:.6,opacity:0});
+        });
+
+        $('#btn-left').on('mouseenter', function() {
+            gsap.to('#btn-left img',{duration:.6, x: -3});
+        });
+        $('#btn-left').on('mouseleave', function() {
+            gsap.to('#btn-left img',{duration:.6, x: 0});
+        });
+
+        $('#btn-right').on('mouseenter', function() {
+            gsap.to('#btn-right img',{duration:.6, x: 3});
+        });
+        $('#btn-right').on('mouseleave', function() {
+            gsap.to('#btn-right img',{duration:.6, x: 0});
+        });
+    }
+
+    function exit() {
+        window.open(clickTag);
+    }
+    
+
+
+</script>
+</body>
+</html>
+
+<!--1018V2-->

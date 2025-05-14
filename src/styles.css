@@ -1,0 +1,45 @@
+/* General body styling */
+body {
+    font-family: 'Montserrat', sans-serif;  /* Use Montserrat font */
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header styling */
+header {
+    background: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 3rem 0;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+
+/* Remove padding and margin from the Fancybox content */
+.fancybox__content, .fancybox__inner {
+  padding: 0 !important;  /* Remove any padding Fancybox is adding */
+  margin: 0 !important;   /* Ensure no margin */
+}
+
+/* Ensure iframe takes full width and height */
+.fancybox__iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important; /* Remove any border if present */
+}
+
+/* Footer styling */
+footer {
+    background: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 1.5rem 0;
+}
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset="UTF-8">
+	<title>CandyBanners</title>
+	<meta name="ad.size" content="width=300,height=250"> 
+	<link rel="stylesheet" href="style.css">
+	<script> var clickTag = "https://thelittleprincebroadway.com/?gclid=Cj0KCQiAuvOPBhDXARIsAKzLQ8H9PicVpEosP5JPUJS-njMZNKLkV_lxBN3c-aUbbKf_cunH7tS8wzMaAsw8EALw_wcB&gclsrc=aw.ds"; </script>
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="bg" class='bg'> <img src='bg.jpg' alt='Background4'></div>
+        <canvas id='starscvs'></canvas> 
+        <div class="planet"><img src="planet.png" alt=""></div>
+
+        <div class="holder1 holder">
+            <div class='sprite stars stars1'></div>
+            <div class='sprite stars stars2'></div>
+            <div class='sprite stars stars3'></div>
+            <div class='sprite t1-1 t1'></div>
+            <div class='sprite t1-2 t1'></div>
+            <div class='sprite t1-3 t1'></div>
+            <div class='sprite title1 title'></div>
+        </div>
+
+        <div class="holder2 holder">
+
+            <div class='sprite t2-1'></div>
+            <div class='sprite t3-1'></div>
+            
+            <div class='sprite title2 title'></div>
+            <div class="cta">
+                <div class='sprite ctabg1'></div>
+                <div class='sprite ctatext'></div>
+                <div class="shine"><img src="shine.png" alt=""></div>
+            </div>
+        </div>
+
+        <div class="figure"><img src="figure.png" alt=""></div>
+		<canvas id='cvs'></canvas> 
+        <div id='border'></div>
+        <div id='clickthru'></div>
+	</div>
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/easeljs_0.8.2_937c3ec68021211c056f61c9ceaccffd_min.js"></script>
+    <script src="canvas.js"></script>
+	<script>
+    //--------------preload-img-------------------
+    function preload(arr,f) { $('<div id="preload" />').appendTo('body'); $(arr).each(function () {$('<img />').attr('src',this).appendTo('#preload').hide(); }); window.onload =function(){ f(); $('#preload').remove()} }
+    //--------------vars-------------------
+    var tl = gsap.timeline();
+    //---------------------------------
+    preload([
+        "bg.jpg",
+        "figure.png",
+        "petal1.png",
+        "petal2.png",
+        "petal3.png",
+        "petal4.png",
+        "planet.png",
+        "stars.png",
+        "shine.png",
+        "sprite.png"
+    ],startAnim);
+    //--------------animations---------------------
+    function startAnim() {
+        //--------------- SET -----------------
+		gsap.set('#container', {display: 'block'});
+		gsap.set('.holder', {willChange: 'transform', transformPerspective: 100});
+		gsap.set('.title2', {scale: .81});
+        //------------ ADD EVENT --------------
+        addEvent();
+        // initCanvas();
+        initStarCanvas();
+        hoverFunction();
+
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1')
+            .from('.bg', {duration: 3, scale: 1.8, transformOrigin: '50% 50%', ease: "elastic.out(.1, 1)"},'Scene1')
+            .from('#starscvs', {duration:  1, opacity: 0, ease: "none"},'Scene1+=.5')
+            .from('#starscvs', {duration:  5, scale: .9,  ease: "none"},'Scene1')
+            .from('.holder1', {duration: 3, scale: 1.8, transformOrigin: 'center center', ease: "elastic.out(.1, 1)"},'Scene1')
+
+            .add('Scene2', 'Scene1+=4')
+            .add(initCanvas, 'Scene2+=.1')
+            .from('#cvs', {duration: .1, opacity: 0},'Scene2+=.1')
+            .to('.holder1', {duration: 3, scale: 0.8, transformOrigin: 'center center', ease: "elastic.out(.1, 1)"}, 'Scene2')
+            .to('.holder1', {duration: .4, opacity: 0}, 'Scene2+=.2')
+
+            .from('.holder2,.figure,.planet', {duration: .4, opacity: 0}, 'Scene2+=.5')
+            .from('.holder2', {duration: 3, scale: 1.8, transformOrigin: 'center center', ease: "elastic.out(.1, 1)"},'Scene2+=.5')
+            
+            .from('.planet', {duration: 3, scale: 2.2, x: 100, y: -40, transformOrigin: 'bottom center', ease: "elastic.out(.1, 1)"},'Scene2+=.5')
+            .from('.figure', {duration: 3, scale: 2.2, x: 30, transformOrigin: 'center center', ease: "elastic.out(.1, 1)"},'Scene2+=.5')
+            .from('.figure', {duration: 3, y: 20, ease: "elastic.out(.1, 1)"},'Scene2+=.8')
+            .to('.figure > img', {duration: 2, y: 5, yoyo: true, repeat: 4, ease: 'power1.inOut'}, 'Scene2+=3.5')
+
+            .add('Scene3', 'Scene2+=3')
+            .to('.t2-1', {duration: .6, opacity: 0}, 'Scene3')
+            .from('.t3-1', {duration: .6, opacity: 0}, 'Scene3+=.3')
+
+            .add(removePetals, 'Scene1+=15')
+            .add(removeStars, 'Scene1+=15')
+        //-------------------------------------
+    };
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+    };
+    
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough("clickTAG");
+        //--studio--> Enabler.exit('Background Exit'); 
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag); /*Studio/Enabler Exit*/
+    }
+    
+    var tlCTA = gsap.timeline({paused: true});
+    tlCTA
+        .fromTo('.shine', {x: 0}, {duration: .6, x: 400, ease: 'power1.out'})
+
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+            tlCTA.play(0);
+        });
+    }
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--2021-->

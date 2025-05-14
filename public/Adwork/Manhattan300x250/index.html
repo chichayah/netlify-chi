@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset="UTF-8">
+	<title>Pereira ODell - Manhattan West Now Open</title>
+	<meta name="ad.size" content="width=300,height=250"> 
+	<link rel="stylesheet" href="style.css">
+	<script> var clickTag = "https://www.google.com"; </script>
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="DrawSVGPlugin.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div class='bg bg-sky'>
+			<img src="bg-sky.jpg" alt="Background">
+		</div>
+
+        <div class='bg bg-back'>
+			<img src="bg-back.png" alt="Background">
+		</div>
+
+        <div class='seq-girl-bag'></div> 
+
+        <div class='bg bg-mid'>
+			<img src="bg-mid.png" alt="Background">
+		</div>
+
+        <div class="bystanders">
+            <img src="bystanders.png" alt="">
+        </div>
+        <div class='seq-skater-boy'></div> 
+        <div class='seq-skater-girl'></div> 
+
+        <div class='seq-couple'></div> 
+        
+
+        <div class='seq-cyclist-girl'></div> 
+        <div class='seq-father-son-walking'></div> 
+
+        <div class='bg bg-front2'>
+			<img src="bg-front2.png" alt="Background">
+		</div>
+        <div class='seq-father-son'></div> 
+
+        <div class="car1">
+            <img src="car.png" alt="">
+        </div>
+
+        <div class="car2">
+            <img src="car.png" alt="">
+        </div>
+
+        <div class='bg bg-front1'>
+			<img src="bg-front1.png" alt="Background">
+		</div>
+
+        <canvas id='cvs'></canvas> 
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="svgShadow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 484 142" style="enable-background:new 0 0 484 142;" xml:space="preserve">
+            <defs>
+                <mask id="mask-e" x="0">
+                    <path id="draw-e" style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                    M59.3,56.5c0,0,4.2,3,9.5,0.9c5.3-2,4.9-3.4,6.8-7.5c1.8-4.3,2.7-7.4-3.2-11.1s-26.8,1.3-28.5,2.5c-1.6,1.2-16.7,11.9-14.4,22.3
+                    s14.6,9.8,14.6,9.8s9.5-0.9,8.7-0.5c-0.8,0.2-18.3,2.6-20.9,4.2c-2.2,1.6-20.1,12.5-23.4,21.9S3,114.2,5.9,120.4
+                    c2.9,6.1,6.7,11.3,16.3,11.3s18.8-3.7,19.7-3.9c0.8-0.2,13.1-7.4,16.4-12.3c3.3-4.7,7.4-11.7,7-16c-0.4-4.3,1.9-8.2-3.7-8.6"/>
+                </mask>
+                <mask id="mask-v" x="0">
+                    <path id="draw-v" style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                    M90.6,60.7c0,0-12.1,34.1-12.3,36.3c-0.2,2.5,0.4,7.4,2.3,9c1.6,1.6,5.3-0.3,6.8-0.3c1.4,0,6.4-4.9,7.8-6.5
+                    c1.4-1.8,9.8-8.6,11.7-14.7c1-3.3,3.1-7.8,4.5-11.7c3.9-10.5,1-14,0.8-14.7"/>
+                </mask>
+                <mask id="mask-erything" x="0">
+                    <path id="draw-erything" style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                    M118.3,80.7c0,0,4.5,1.4,8,0.6c3.5-0.8,14.1-4.5,15.5-7.4c1.4-2.9,5.9-6.5,5.3-11.2c-0.6-4.7-3.9-6.3-5.7-6.5s-10.8,3.9-11.7,5.1
+                    c-0.8,1.2-7.8,7.6-9.8,14.5c-2,7-3.3,12.9-2.2,16.4c1,3.5,5.3,8.4,8.4,9c3.3,0.6,10.8,0.2,13.7-1.6s11.2-7,12.1-8.8
+                    c0.8-1.8,8.6-15.5,9.2-18.6s4.1-11.2,4.9-14.9c0.8-3.7,2-10,0-11.9c-2-1.8-4.9,1.8-4.9,2.7c0,0.8,0,5.3,2.7,5.5
+                    c2.7,0.2,16.8,2.9,18,4.3c1.2,1.4,3.3,3.5,2.9,4.7c-0.2,1.2-6.1,23.1-6.3,24.1s-0.2,6.7,2.5,8c2.7,1.2,6.3,1.6,9.6-1.6
+                    c3.3-3.3,8.5-9.5,9.5-12.1c1-2.5,13.5-35.3,13.5-35.3s-11.7,29.4-11.9,29.6c-0.2,0.4-1.7,12.3,2.4,14.8c3.5,2,9.5,2.8,14.7-0.3
+                    s8.5-6.4,9.1-8s13.4-37,13.4-37l-24.7,68.4c0,0-4.3,12.5-10.7,15.3c-6.3,2.9-7.8,2.2-8.8,1.8s-4.9-4.3-3.7-8.2
+                    c1.2-3.9,2.5-9.2,8-13.9c5.5-4.7,30-15.3,31.8-15.1c0.7,0.1,16.3-16.1,21.8-30c9.5-24.2,14.5-40.7,16.4-42.7l-0.5,0.1
+                    c0,0-18.5,49.4-19.3,50.6s-1.6,8-1,10.7c0.6,2.5,1.8,3,3.9,4.6c2,1.6,7,0.2,7.8,0c1-0.2,5.2-1.9,6.2-3.2c1-1.2,6.3-5.9,7.2-7.6
+                    c0.8-1.6,28.8-70.9,28.8-70.9l-31,80.9c0,0,16.9-41.4,17.5-41.6c0.4-0.2,11-5.9,13.9-6.3s8.3-0.3,9.5,0.8c1.4,1.2,2.6,5.1,2.6,6.5
+                    c0,1.2-1.1,6-1.5,7.4c-0.6,1.6-6.4,18.2-6.8,19.2c-0.2,0.8-0.7,6.8,1.5,8c2.2,1.2,6.6,0.2,8.9-0.6c2.2-0.8,5.2-2.9,5.9-3.9
+                    c0.6-1,3.9-5.7,4.3-6.5c0.4-0.8,14.9-35.8,14.9-35.8S331,63.3,330.8,64.1c-0.2,0.6-0.9,9.2,0.3,10.3c1.2,0.8,2.4,3.2,5.3,3.6
+                    c2.7,0.4,7.6-3,8-3.4s6.5-5.4,7.1-6.4c0.6-1,16.5-39.1,16.5-39.1l-17.9,47.1c0,0,17.2-41.1,17.7-41.3c2.7-1.2,7.1-4.3,7.1-4.3
+                    s6-2.8,8.3-2.4c2,0.4,6.9,3.1,7.3,3.9c0.4,0.8,0.2,6.1,0,7.5c-0.2,1.6-3.7,10.3-3.7,10.3l-3.8,11.1c0,0-1.9,6.4-0.5,8.6
+                    c1.2,2,5.6,1.9,6.4,2.1c0.8,0,6.9-3,6.9-3.6s8.8-9.5,9-10.3c0.2-0.8,3-4.1,2.8-4.7c0-0.6,3.8-14.2,7.6-19c4.3-5.4,6.8-8.3,14.5-11.8
+                    c3-1.3,9.4-0.7,12,1.8s1.3,7.7,1.5,8.9c0.2,1.2-1.5-8.9-1.5-8.9s-21.6-7-29.4,14.2c-7.3,19.6-6.4,20.5-0.9,26.2
+                    c5.5,5.7,15.8,0.9,16.4,0.9c0.6,0,10.3-11.7,10.5-12.3c0.2-0.6,12.4-33.9,12.4-33.9l-26.4,71.8c0,0-6.4,10.3-9.3,11.5
+                    c-2.9,1-4.7,3.2-8,2.8s-5.7-2.1-5.5-3.1c0.2-1.2-1.4-7,3.5-13.5c4.9-6.5,15.6-12.5,16.4-12.7s19.8-4.6,22.1-5
+                    c2.2-0.4,16.7-3.4,17.5-4.3s11.5-4.5,11.9-8c0.4-3.5,4.8-7.8,1.1-11.9c-4.7-4.9-7.9-3-7.9-3"/>
+                </mask>
+            </defs>
+            <image width="484" height="142" overflow="visible" xlink:href="et-ds.png" mask="url(#mask-e)"></image>
+            <image width="484" height="142" overflow="visible" xlink:href="et-ds.png" mask="url(#mask-v)"></image>
+            <image width="484" height="142" overflow="visible" xlink:href="et-ds.png" mask="url(#mask-erything)"></image>
+        </svg>
+
+        <div class="et-dash-ds dash"><img src="et-dash-ds.png" alt=""></div>
+        <div class="et-dot-ds dot"><img src="et-dot-ds.png" alt=""></div>
+        
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="svgColored" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 484 142" style="enable-background:new 0 0 484 142;" xml:space="preserve">
+            <defs>
+                <mask id="mask-e" x="0">
+                    <path id="draw-e" style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                    M59.3,56.5c0,0,4.2,3,9.5,0.9c5.3-2,4.9-3.4,6.8-7.5c1.8-4.3,2.7-7.4-3.2-11.1s-26.8,1.3-28.5,2.5c-1.6,1.2-16.7,11.9-14.4,22.3
+                    s14.6,9.8,14.6,9.8s9.5-0.9,8.7-0.5c-0.8,0.2-18.3,2.6-20.9,4.2c-2.2,1.6-20.1,12.5-23.4,21.9S3,114.2,5.9,120.4
+                    c2.9,6.1,6.7,11.3,16.3,11.3s18.8-3.7,19.7-3.9c0.8-0.2,13.1-7.4,16.4-12.3c3.3-4.7,7.4-11.7,7-16c-0.4-4.3,1.9-8.2-3.7-8.6"/>
+                </mask>
+                <mask id="mask-v" x="0">
+                    <path id="draw-v" style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                    M90.6,60.7c0,0-12.1,34.1-12.3,36.3c-0.2,2.5,0.4,7.4,2.3,9c1.6,1.6,5.3-0.3,6.8-0.3c1.4,0,6.4-4.9,7.8-6.5
+                    c1.4-1.8,9.8-8.6,11.7-14.7c1-3.3,3.1-7.8,4.5-11.7c3.9-10.5,1-14,0.8-14.7"/>
+                </mask>
+                <mask id="mask-erything" x="0">
+                    <path id="draw-erything" style="fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                    M118.3,80.7c0,0,4.5,1.4,8,0.6c3.5-0.8,14.1-4.5,15.5-7.4c1.4-2.9,5.9-6.5,5.3-11.2c-0.6-4.7-3.9-6.3-5.7-6.5s-10.8,3.9-11.7,5.1
+                    c-0.8,1.2-7.8,7.6-9.8,14.5c-2,7-3.3,12.9-2.2,16.4c1,3.5,5.3,8.4,8.4,9c3.3,0.6,10.8,0.2,13.7-1.6s11.2-7,12.1-8.8
+                    c0.8-1.8,8.6-15.5,9.2-18.6s4.1-11.2,4.9-14.9c0.8-3.7,2-10,0-11.9c-2-1.8-4.9,1.8-4.9,2.7c0,0.8,0,5.3,2.7,5.5
+                    c2.7,0.2,16.8,2.9,18,4.3c1.2,1.4,3.3,3.5,2.9,4.7c-0.2,1.2-6.1,23.1-6.3,24.1s-0.2,6.7,2.5,8c2.7,1.2,6.3,1.6,9.6-1.6
+                    c3.3-3.3,8.5-9.5,9.5-12.1c1-2.5,13.5-35.3,13.5-35.3s-11.7,29.4-11.9,29.6c-0.2,0.4-1.7,12.3,2.4,14.8c3.5,2,9.5,2.8,14.7-0.3
+                    s8.5-6.4,9.1-8s13.4-37,13.4-37l-24.7,68.4c0,0-4.3,12.5-10.7,15.3c-6.3,2.9-7.8,2.2-8.8,1.8s-4.9-4.3-3.7-8.2
+                    c1.2-3.9,2.5-9.2,8-13.9c5.5-4.7,30-15.3,31.8-15.1c0.7,0.1,16.3-16.1,21.8-30c9.5-24.2,14.5-40.7,16.4-42.7l-0.5,0.1
+                    c0,0-18.5,49.4-19.3,50.6s-1.6,8-1,10.7c0.6,2.5,1.8,3,3.9,4.6c2,1.6,7,0.2,7.8,0c1-0.2,5.2-1.9,6.2-3.2c1-1.2,6.3-5.9,7.2-7.6
+                    c0.8-1.6,28.8-70.9,28.8-70.9l-31,80.9c0,0,16.9-41.4,17.5-41.6c0.4-0.2,11-5.9,13.9-6.3s8.3-0.3,9.5,0.8c1.4,1.2,2.6,5.1,2.6,6.5
+                    c0,1.2-1.1,6-1.5,7.4c-0.6,1.6-6.4,18.2-6.8,19.2c-0.2,0.8-0.7,6.8,1.5,8c2.2,1.2,6.6,0.2,8.9-0.6c2.2-0.8,5.2-2.9,5.9-3.9
+                    c0.6-1,3.9-5.7,4.3-6.5c0.4-0.8,14.9-35.8,14.9-35.8S331,63.3,330.8,64.1c-0.2,0.6-0.9,9.2,0.3,10.3c1.2,0.8,2.4,3.2,5.3,3.6
+                    c2.7,0.4,7.6-3,8-3.4s6.5-5.4,7.1-6.4c0.6-1,16.5-39.1,16.5-39.1l-17.9,47.1c0,0,17.2-41.1,17.7-41.3c2.7-1.2,7.1-4.3,7.1-4.3
+                    s6-2.8,8.3-2.4c2,0.4,6.9,3.1,7.3,3.9c0.4,0.8,0.2,6.1,0,7.5c-0.2,1.6-3.7,10.3-3.7,10.3l-3.8,11.1c0,0-1.9,6.4-0.5,8.6
+                    c1.2,2,5.6,1.9,6.4,2.1c0.8,0,6.9-3,6.9-3.6s8.8-9.5,9-10.3c0.2-0.8,3-4.1,2.8-4.7c0-0.6,3.8-14.2,7.6-19c4.3-5.4,6.8-8.3,14.5-11.8
+                    c3-1.3,9.4-0.7,12,1.8s1.3,7.7,1.5,8.9c0.2,1.2-1.5-8.9-1.5-8.9s-21.6-7-29.4,14.2c-7.3,19.6-6.4,20.5-0.9,26.2
+                    c5.5,5.7,15.8,0.9,16.4,0.9c0.6,0,10.3-11.7,10.5-12.3c0.2-0.6,12.4-33.9,12.4-33.9l-26.4,71.8c0,0-6.4,10.3-9.3,11.5
+                    c-2.9,1-4.7,3.2-8,2.8s-5.7-2.1-5.5-3.1c0.2-1.2-1.4-7,3.5-13.5c4.9-6.5,15.6-12.5,16.4-12.7s19.8-4.6,22.1-5
+                    c2.2-0.4,16.7-3.4,17.5-4.3s11.5-4.5,11.9-8c0.4-3.5,4.8-7.8,1.1-11.9c-4.7-4.9-7.9-3-7.9-3"/>
+                </mask>
+            </defs>
+            <image width="484" height="142" overflow="visible" xlink:href="et.png" mask="url(#mask-e)"></image>
+            <image width="484" height="142" overflow="visible" xlink:href="et.png" mask="url(#mask-v)"></image>
+            <image width="484" height="142" overflow="visible" xlink:href="et.png" mask="url(#mask-erything)"></image>
+        </svg>
+
+        <div class="et-dash dash"><img src="et-dash.png" alt=""></div>
+        <div class="et-dot dot"><img src="et-dot.png" alt=""></div>
+
+        <div class='banner2 banner'><img src="banner2.png" alt=""></div>
+        <div class='banner1 banner'><img src="banner1.png" alt=""></div>
+
+        <div class='sprite text-header-1'></div>
+        
+        <div class='seq-boy'></div> 
+
+
+        <div class='seq-cyclist-boy'></div> 
+        
+
+        <div class='sprite logo'></div>
+        <div class='sprite logo-name'></div>
+
+        <div class="balloon1 balloon"><img src="balloon1.png" alt=""></div>
+
+        <div class='cta'>
+            <div class='sprite cta-text'></div>
+            <div class='sprite cta-arrow1'></div>
+            <div class='sprite cta-arrow2'></div>
+        </div>
+        <div class="border"></div>
+        <div id='clickthru'></div>
+        
+	</div>
+    <script src="canvas.js"></script>
+	<script>
+    //--------------preload-img-------------------
+    function preload(arr,f) { $('<div id="preload" />').appendTo('body'); $(arr).each(function () {$('<img />').attr('src',this).appendTo('#preload').hide(); }); window.onload =function(){ f(); $('#preload').remove()} }
+    //--------------vars-------------------
+    var tl = gsap.timeline();
+    var tlHandWrite = gsap.timeline({paused: true});
+    var tlSequence = gsap.timeline();
+    var tlMovements = gsap.timeline();
+    //---------------------------------
+    preload([
+        "balloon1.png",
+        "banner1.png",
+        "banner2.png",
+        "bg-back.png",
+        "bg-front1.png",
+        "bg-front2.png",
+        "bg-mid.png",
+        "bg-sky.jpg",
+        "et-dash-ds.png",
+        "et-dash.png",
+        "et-dot-ds.png",
+        "et-dot.png",
+        "et-ds.png",
+        "et.png",
+        "snow.png",
+        "sprite.png",
+        "seq-boy.png",
+        "seq-couple.png",
+        "seq-cyclist-boy.png",
+        "seq-cyclist-girl.png",
+        "seq-father-son-walking.png",
+        "seq-father-son.png",
+        "seq-girl-bag.png",
+        "seq-skater-boy.png",
+        "seq-skater-girl.png"
+    ],startAnim);
+    //--------------animations---------------------
+    function startAnim() {
+        //--------------- SET -----------------
+		gsap.set('#container', {display: 'block'});
+        gsap.set('.balloon', {transformOrigin: '50% 20%'});
+        gsap.set('.seq-boy, .seq-couple, .seq-father-son, .seq-girl-bag, .seq-skater-boy', {scale: 0.28});
+        gsap.set('.seq-skater-girl', {scaleX: -0.3, scaleY: .25});
+        gsap.set('.bystanders', {scale: 0.25});
+        gsap.set('.seq-father-son-walking', {scale: 0.25});
+        gsap.set('.car1,.car2', {scale: 0.23});
+        gsap.set('.seq-cyclist-boy, .seq-cyclist-girl, .seq-father-son-walking', {scale: 0.25});
+        //------------ ADD EVENT --------------
+        addEvent();
+        baloonAnim();
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1')
+            .to(tlHandWrite, {duration: 2.5, progress: 1, ease: 'power1.out'}, 'Scene1')
+            .to('.cta-arrow2',{duration:.3,opacity:1, yoyo: true, repeat: 3 }, 'Scene1+=3.0')
+            .add(hoverFunction, 'Scene1+=3')
+            .add(removeSnow, 'Scene1+=15')
+            .add(function(){tlSequence.pause()}, 'Scene1+=15')
+
+        tlHandWrite
+            .add('write')
+            .from('#draw-e', {duration: .5, drawSVG: '0%', ease: 'none'})
+            .from('#draw-v', {duration: .4, drawSVG: '0%', ease: 'none'})
+            .from('#draw-erything', {duration: 1.6, drawSVG: '0%', ease: 'none'})
+            .from('.dash', {duration: .2, width: 0, ease: 'none'})
+            .from('.dot', {duration: .1, opacity: 0, ease: 'none'})
+        
+        tlMovements
+            .add('move')
+            .to('.seq-boy', {duration: 15, x: -70, ease: 'none'}, 'move')
+            .to('.seq-girl-bag', {duration: 15, x: -40, ease: 'none'}, 'move')
+            .to('.seq-couple', {duration: 15, x: -60, ease: 'none'}, 'move')
+            .to('.seq-father-son-walking', {duration: 15, x: -60, ease: 'none'}, 'move')
+            .to('.car1', {duration: 15, x: -500, ease: 'power1.in'}, 'move')
+            .to('.car2', {duration: 15, x: -500, ease: 'none'}, 'move')
+            .to('.seq-cyclist-boy', {duration: 15, x:  160, ease: 'none'}, 'move')
+            .to('.seq-cyclist-girl', {duration: 15, x:  130, ease: 'none'}, 'move')
+            .to('.seq-skater-boy', {duration: 15, x: 20, ease: 'none'}, 'move')
+            .to('.seq-skater-girl', {duration: 15, x: 51, ease: 'none'}, 'move')
+
+        tlSequence
+            .add('seq')
+            .to('.seq-boy',{duration: 1.2, ease:SteppedEase.config(43), backgroundPosition:'0px -3440px', repeat: -1}, 'seq')
+            .to('.seq-girl-bag',{duration: 1.0, ease:SteppedEase.config(8), backgroundPosition:'0px -720px', repeat: -1}, 'seq')
+            .to('.seq-couple',{duration: 1.4, ease:SteppedEase.config(13), backgroundPosition:'-1430px 0px', repeat: -1}, 'seq')
+            .to('.seq-father-son',{duration: 1, ease:SteppedEase.config(13), backgroundPosition:'0px -1092px', repeat: -1}, 'seq')
+            .to('.seq-father-son-walking',{duration: 1.6, ease:SteppedEase.config(10), backgroundPosition:'0px -900px', repeat: -1}, 'seq')
+            .to('.seq-cyclist-boy',{duration: 1, ease:SteppedEase.config(8), backgroundPosition:'0px -688px', repeat: -1}, 'seq')
+            .to('.seq-cyclist-girl',{duration: 1, ease:SteppedEase.config(6), backgroundPosition:'0px -480px', repeat: -1}, 'seq')
+            .to('.seq-skater-boy',{duration: 2, ease:SteppedEase.config(16), backgroundPosition:'0px -1120px', repeat: -1}, 'seq')
+            .to('.seq-skater-girl',{duration: 2, ease:SteppedEase.config(13), backgroundPosition:'0px -910px', yoyo: true, repeat: -1}, 'seq')
+        //-------------------------------------
+    };
+
+
+    function baloonAnim() {
+        gsap.fromTo('.balloon1', {rotation:  4}, {duration: 4, rotation: -4, yoyo: true, repeat: 3, ease: 'power1.inOut'});
+        gsap.fromTo('.balloon1 img', {y: -2}, {duration: 3, y: 2, yoyo: true, repeat: 4, ease: 'power1.inOut'});
+    }
+
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+    };
+    
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough("clickTAG");
+        //--studio--> Enabler.exit('Background Exit'); 
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag); /*Studio/Enabler Exit*/
+    }
+    
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+            gsap.to('.cta-arrow1',{duration:.3,opacity:0});
+            gsap.to('.cta-arrow2',{duration:.3,opacity:1 });
+        });
+        $('#clickthru').on('mouseleave', function() {
+            gsap.to('.cta-arrow1',{duration:.3,opacity:1});
+            gsap.to('.cta-arrow2',{duration:.3,opacity:0});
+        });
+    }
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--2021-->

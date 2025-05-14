@@ -1,0 +1,264 @@
+   <!DOCTYPE html>
+<html lang='en'>
+<head>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<meta charset='UTF-8'>
+	<title>Saputo_Armstrong</title>
+	<meta name='ad.size' content='width=300,height=250'>
+	<link rel='stylesheet' href='style.css'>
+    <link rel="preload" href="https://s0.2mdn.net/creatives/assets/3929956/Helvetica.otf" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://s0.2mdn.net/creatives/assets/3929956/Helvetica-Bold.woff" as="font" type="font/woff2" crossorigin="anonymous">
+	<script> var clickTag = 'https://www.google.com'; </script>
+    <script src='https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src='https://s0.2mdn.net/ads/studio/cached_libs/preloadjs_1.0.0_min.js'></script>
+    <script src="SplitText.js"></script>
+</head>
+<body>
+	<div id='container'>
+
+        <div class='bg'></div>
+
+        <div class='footer imgfix'> <img src='footer.png' alt=''/></div>
+        <div class='packshot imgfix'><img src='packshot.png' alt=''/></div>
+        
+
+        <div class="bubble-chat imgfix"></div>
+        <div id="textWrapper" class="imgfix">
+            <div id='bubble-text1' class="imgfix"><p><b>Angeline K.</b></p></div>
+            <div id='bubble-text2' class="imgfix"><p>Have bought Armstrong for 50 years; definitely our favourite! Way to go! </p></div>
+            <!-- <span id="cursor">|</span> -->
+        </div>
+
+        <div class="react imgfix">
+            <div id='number'><p>2350</p></div>
+            <div class='bubble-react imgfix'>
+                <img src='bubble-react.png' alt=''/>
+            </div>
+        </div>
+
+        <div class='sprite ef-text'></div>
+
+        <div id="cta" class="imgfix">
+            <div class='sprite cta-text1'></div>
+            <div class='sprite cta-text2'></div>
+        </div>
+
+        <div class='f1-reacts imgfix'><img src='f1-reacts.png' alt=''/></div>
+        <div class='f1-l1 f1-like imgfix'><img src='f1-l1.png' alt=''/></div>
+        <div class='f1-l2 f1-like imgfix'><img src='f1-l1.png' alt=''/></div>
+        <div class='f1-l3 f1-like imgfix'><img src='f1-l1.png' alt=''/></div>
+        <div class='f1-h1 f1-heart imgfix'><img src='f1-h1.png' alt=''/></div>
+        <div class='f1-h2 f1-heart imgfix'><img src='f1-h2.png' alt=''/></div>
+
+        <div class='f2-reacts imgfix'><img src='f2-reacts.png' alt=''/></div>
+        <div class='f2-l1 f2-like imgfix'><img src='f2-l1.png' alt=''/></div>
+        <div class='f2-l2 f2-like imgfix'><img src='f2-l2.png' alt=''/></div>
+        <div class='f2-l3 f2-like imgfix'><img src='f2-l2.png' alt=''/></div>
+        <div class='f2-h1 f2-heart imgfix'><img src='f2-h1.png' alt=''/></div>
+        <div class='f2-h2 f2-heart imgfix'><img src='f2-h2.png' alt=''/></div>
+
+        <div class='f3-reacts imgfix'><img src='f3-reacts.png' alt=''/></div>
+        <div class='f3-l1 f3-like imgfix'><img src='f3-l1.png' alt=''/></div>
+        <div class='f3-l2 f3-like imgfix'><img src='f3-l2.png' alt=''/></div>
+        <div class='f3-l3 f3-like imgfix'><img src='f3-l2.png' alt=''/></div>
+        <div class='f3-l4 f3-like imgfix'><img src='f3-l2.png' alt=''/></div>
+        <div class='f3-h1 f3-heart imgfix'><img src='f3-h1.png' alt=''/></div>
+        <div class='f3-h2 f3-heart imgfix'><img src='f3-h2.png' alt=''/></div>
+        <div class='f3-h3 f3-heart imgfix'><img src='f3-h2.png' alt=''/></div>
+
+        <div class='header imgfix'><img src='header.png' alt=''/></div>
+
+        <div id='border'></div>
+        <div id='clickthru'></div>
+
+	</div>
+	<script>
+	var assets,manifest,scripts;
+
+    //--------------preload---------------------
+
+    function preloadfiles(){
+        assets = new createjs.LoadQueue(false);
+        manifest=[
+            {src: 'bubble-react.png'},
+            {src: 'header.png'},
+            {src: 'footer.png'},
+            {src: 'packshot.png'},
+            {src: 'sprite.png'},
+            {src: 'f1-reacts.png'},
+            {src: 'f2-reacts.png'},
+            {src: 'f3-reacts.png'},
+            {src: 'f1-l1.png'},
+            {src: 'f1-h1.png'},
+            {src: 'f1-h2.png'},
+            {src: 'f2-h1.png'},
+            {src: 'f2-l1.png'},
+            {src: 'f2-l2.png'},
+            {src: 'f3-l1.png'},
+            {src: 'f3-l2.png'},
+            {src: 'f3-h1.png'},
+            {src: 'f3-h2.png'}
+        ];
+        if(scripts) manifest.push({src:scripts});
+        assets.loadManifest(manifest);
+        assets.on('complete',function(){
+            if(scripts){
+                var js = document.createElement('script');
+                js.src = scripts;
+            }
+            startAnim();
+        });
+
+    }
+    window.onload = preloadfiles();
+    //--------------animations---------------------
+    var tl = gsap.timeline();
+    var tl_cursor = gsap.timeline();
+
+    function startAnim() {
+        //--------------- SET -----------------
+        gsap.set('#container', {display: 'block'});
+        gsap.set('.sprite', {rotation:0.001, force3D: true, transformPerspective:100});
+        gsap.set('.imgfix', {rotation:0.001, force3D: true, transformPerspective:100});
+        //------------ ADD EVENT --------------
+        addEvent();
+        hoverFunction();
+
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf('safari') != -1) {
+            if (ua.indexOf('chrome') > -1) {
+                $('#number').css({top: "8px"});
+            } else {
+                $('#number').css({top: "9px"});
+                $('#textWrapper').css({letterSpacing: "-0.1px"});
+            }
+        }
+
+        // var mySplitText1 = new SplitText('#bubble-text1', {type: "words,chars",charsClass: 'text1',position: "absolute"})
+        var mySplitText2 = new SplitText('#bubble-text2', {type: "words,chars",charsClass: 'text2',position: "absolute"})
+
+        //---------- ADD ANIMATION ------------
+        tl
+            //=========================
+            .add('Scene1', '-=.5')
+            .fromTo('.f1-heart', { y: 300 }, { duration: 6, stagger:0.4, y:-300, ease:'power1.inOut'},'Scene1')
+      
+            .fromTo('.f1-like',  { y: 300 }, { duration: 6, stagger:0.2, y:-300, ease:'power1.inOut'},'Scene1-=.2')
+            .fromTo('.f1-reacts',    { y: 300 }, { duration: 6, y:-300, ease:'power1.inOut'},'Scene1+=.4')
+
+            .add('Scene2','Scene1+=3.8')
+            .to(['.packshot', '.footer'], { duration: 1, y: 250, ease:'power1.inOut'},'Scene2')
+
+            .add(function(){typeAnim('text2')}, 'Scene2')
+            .from('.bubble-chat', {duration:.6, opacity:0, scale: 0.8, yPercent: 20, transformOrigin: 'bottom center', ease:'back.out(1.1)'},'Scene2+=.6')
+            .from('#bubble-text1', {duration:.6, opacity:0, scale: 0.8, yPercent: 150, xPercent: 20, transformOrigin: 'bottom center', ease:'back.out(1.1)'},'Scene2+=.6')
+
+            .fromTo('.f2-heart', { y: 300 }, { duration: 6, stagger:0.4, y:-300, ease:'power1.inOut'},'Scene2+=1')
+            .fromTo('.f2-like',  { y: 300 }, { duration: 6, stagger:0.2, y:-300, ease:'power1.inOut'},'Scene2+=1.3')
+            .fromTo('.f2-reacts',    { y: 300 }, { duration: 6, y:-300, ease:'power1.inOut'},'Scene2+=2')
+
+            .from('.react', {duration:.6, opacity:0, scale: 0.6, ease:'back.out(1.7)'},'Scene2+=3.3')
+       
+            .add(changeNum, 'Scene2+=3.8')
+           
+            .add('Scene3','Scene2+=8')
+            .to('.react,.bubble-chat,#textWrapper', { duration:0.6, opacity:0,ease:'power1.out'},'Scene3')
+
+            .fromTo('.f3-heart', { y: 300 }, { duration: 4, stagger:0.4, y:0, ease:'power1.inOut'},'Scene3-=1')
+            .fromTo('.f3-like',  { y: 300 }, { duration: 4, stagger:0.2, y:0, ease:'power1.inOut'},'Scene3-=1.2')
+            .fromTo('.f3-reacts',    { y: 300 }, { duration: 4, y:0, ease:'power1.inOut'},'Scene3-=.6')
+
+            .from('.ef-text', {duration: 1.5, x: -300, ease:'power2.inOut'},'Scene3')
+            .from('#cta',   { duration: 1.5, x: 300, ease:'power2.inOut'},'Scene3')
+
+            tl_cursor
+                // .from('#cursor', 0.5, { opacity: 0, repeat: -1, ease: SteppedEase.config(1)})
+
+        //-------------------------------------
+    };
+
+    function changeNum() {
+        countDownInt = setInterval(
+            function(){
+                var curValue = parseInt( $('#number p').text() ) + 1;
+                $('#number p').text(curValue);
+                if( curValue >= 2750 ){
+                    clearInterval( countDownInt );
+                }
+        }, 6);
+    }
+
+    function addEvent() {
+        $('#clickthru').on('click', exit);
+    };
+
+    function exit() {
+        //-----------exit guide--------------------------
+        //--adword--> ExitApi.exit();
+        //--adgear--> ADGEAR.html5.clickThrough('clickTAG');
+        //--studio--> Enabler.exit('Background Exit');
+        //--standard/sizemek/adword no-api--> window.open(clickTag);
+        //-----------exit--------------------------------
+        window.open(clickTag);
+    }
+
+    function typeAnim(cl) {
+                var cursor = $("#cursor")
+                var cursorInterval = 0.1
+                var chars = $("."+cl)
+                var tl = gsap.timeline({paused:true,delay:1})
+                // this makes it visible (not blinking) when playing forward
+                // tl.set(cursor, {autoAlpha: 1}, 0.1); 
+
+                //loop through all the chars and make them visible AND set cursor to their right at same time
+                chars.each(function(i, el) {
+                    var char = $(el)
+                    var offset = char.offset()
+                    var width = char.width()
+                    var leftExtra = 2;
+                    var topExtra = 7;
+
+                  // set initial $cursor CSS properties
+                  // you may have to play with leftExtra and topExtra for alignment
+                //   tl.set(cursor, {
+                //     left: (offset.left + width) - leftExtra,
+                //     top:  (offset.top - topExtra)
+                //   }, (i + 1) * cursorInterval);
+
+                  // set initial $char CSS properties
+                  tl.set(char, {
+                    autoAlpha: 1
+                  }, ((i + 1) * cursorInterval));
+                });
+
+                // control speed of typing
+                tl.timeScale(3);
+
+                // play timleine after 1 second delay
+                TweenMax.delayedCall(1, function(){
+                  tl.progress(1).progress(0);
+                  tl.play();
+                });
+            }
+
+    function hoverFunction() {
+        $('#clickthru').on('mouseenter', function() {
+            gsap.to('#cta',  0.3,{ backgroundColor: '#000', ease: 'none'})
+            gsap.to('.cta-text1',  0.3,{ opacity: 0, ease: 'none'})
+            gsap.to('.cta-text2', 0.3,{ opacity: 1, ease: 'none'})
+        });
+        $('#clickthru').on('mouseleave', function() {
+            gsap.to('#cta',  0.3,{ backgroundColor: '#f2e7bb', ease: 'none'})
+            gsap.to('.cta-text1',  0.3,{ opacity: 1, ease: 'none'})
+            gsap.to('.cta-text2', 0.3,{ opacity: 0, ease: 'none'})
+        });
+    }
+
+//-------------------------------------
+
+</script>
+</body>
+</html>
+
+<!--1018V2-->

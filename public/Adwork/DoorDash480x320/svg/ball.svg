@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="ballSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 55.3 152.1" enable-background="new 0 0 55.3 152.1" xml:space="preserve">
+<line id="shadow" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="0.5" y1="151.6" x2="54.8" y2="151.6"/>
+<g id="ball">
+	
+		<circle fill="#F08802" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="27.1" cy="126" r="25.5"/>
+	
+		<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9.1" y1="144.1" x2="45.2" y2="108"/>
+	
+		<line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9.1" y1="108" x2="45.2" y2="144.1"/>
+	<path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.6,125.5
+		c11.8,0,26.1,8.3,26.1,26.1"/>
+	<path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M52.3,127
+		c-11.8,0-26.1-8.3-26.1-26.1"/>
+</g>
+<path id="ballbottom" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M52.7,126
+	c0,12.9-11.4,24.4-25.5,24.4S1.6,139,1.6,126c0,14.1,11.4,25.5,25.5,25.5S52.7,140.1,52.7,126z"/>
+</svg>
