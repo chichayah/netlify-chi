@@ -8,7 +8,7 @@
           <div class="am-text">
             <h2 class="display-4">Hi&nbsp;There!</h2>
             <p class="lead">I'm&nbsp;<span class="text-color">Alvin</span></p>
-            <p>Based&nbsp;from&nbsp;<span class="text-color">Manila</span></p>
+            <p>Based&nbsp;in&nbsp;<span class="text-color">Manila</span></p>
             <p>I&nbsp;am&nbsp;a&nbsp;<span class="text-color">Rich&nbsp;Media&nbsp;Developer</span></p>
             
             <!-- Larger Button -->

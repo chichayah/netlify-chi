@@ -43,11 +43,8 @@ export default {
             Toolbar: {
               display: ["close"]
             },
-            Thumbs: true,
-            Carousel: {
-              transition: "slide",
-              Dots: true
-            },
+            Thumbs: false,
+            Carousel: false,
             iframe: {
               preload: false,
               css: {
